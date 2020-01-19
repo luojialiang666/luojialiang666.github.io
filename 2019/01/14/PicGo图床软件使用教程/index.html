@@ -1,0 +1,206 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.8.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>PicGo图床软件使用教程 | itgoyo'blog</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/7.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({google_ad_client: "ca-pub-5803807445434654", enable_page_level_ads: true});</script></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">PicGo图床软件使用教程</h1><a id="logo" href="/.">itgoyo'blog</a><p class="description">Talk is cheap,Show me the girl.</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 主页</i></a><a href="/archives/"><i class="fa fa-archive"> 文章</i></a><a href="/history"><i class="fa fa-calendar"> 历史</i></a><a href="/books"><i class="fa fa-book"> 书籍</i></a><a href="/movies"><i class="fa fa-film"> 电影</i></a><a href="/games"><i class="fa fa-gamepad"> 游戏</i></a><a href="https://itgoyo.github.io/gallery.html"><i class="fa fa-photo"> 相册</i></a><a href="https://itgoyo.github.io/resume"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> RSS</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">PicGo图床软件使用教程</h1><div class="post-meta">Jan 14, 2019<span> | </span><span class="category"><a href="/categories/开源项目/">开源项目</a></span><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> 阅读</span></span><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5803807445434654"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div><a class="disqus-comment-count" data-disqus-identifier="2019/01/14/PicGo图床软件使用教程/" href="/2019/01/14/PicGo图床软件使用教程/#disqus_thread"></a><a class="disqus-comment-count" href="/2019/01/14/PicGo图床软件使用教程/#vcomment"><span class="valine-comment-count" data-xid="/2019/01/14/PicGo图床软件使用教程/"></span><span>条评论</span></a><div class="clear"><div class="toc-article" id="toc"><div class="toc-title">文章目录</div><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本操作预览"><span class="toc-number">1.</span> <span class="toc-text">#基本操作预览</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#上传区"><span class="toc-number">2.</span> <span class="toc-text">#上传区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相册区"><span class="toc-number">3.</span> <span class="toc-text">#相册区</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#编辑相册的图片信息（v1-5"><span class="toc-number">3.1.</span> <span class="toc-text">#编辑相册的图片信息（v1.5)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#选择复制的链接格式-v2-0"><span class="toc-number">3.2.</span> <span class="toc-text">#选择复制的链接格式(v2.0)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图床区"><span class="toc-number">4.</span> <span class="toc-text">#图床区</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#微博图床"><span class="toc-number">4.1.</span> <span class="toc-text">#微博图床</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#七牛图床"><span class="toc-number">4.2.</span> <span class="toc-text">#七牛图床</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#腾讯云COS"><span class="toc-number">4.3.</span> <span class="toc-text">#腾讯云COS</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#V4版本说明"><span class="toc-number">4.3.1.</span> <span class="toc-text">#V4版本说明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#V5版本说明"><span class="toc-number">4.3.2.</span> <span class="toc-text">#V5版本说明</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#又拍云"><span class="toc-number">4.4.</span> <span class="toc-text">#又拍云</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GitHub图床"><span class="toc-number">4.5.</span> <span class="toc-text">#GitHub图床</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#阿里云OSS"><span class="toc-number">4.6.</span> <span class="toc-text">#阿里云OSS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Imgur图床"><span class="toc-number">4.7.</span> <span class="toc-text">#Imgur图床</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更多其他图床"><span class="toc-number">4.8.</span> <span class="toc-text">#更多其他图床</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PicGo设置"><span class="toc-number">5.</span> <span class="toc-text">#PicGo设置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#自定义快捷键"><span class="toc-number">5.1.</span> <span class="toc-text">#自定义快捷键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自定义链接格式"><span class="toc-number">5.2.</span> <span class="toc-text">#自定义链接格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开关更新助手"><span class="toc-number">5.3.</span> <span class="toc-text">#开关更新助手</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开机自启"><span class="toc-number">5.4.</span> <span class="toc-text">#开机自启</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#上传前重命名"><span class="toc-number">5.5.</span> <span class="toc-text">#上传前重命名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#选择想要显示的图床"><span class="toc-number">5.6.</span> <span class="toc-text">#选择想要显示的图床</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#上传提示"><span class="toc-number">5.7.</span> <span class="toc-text">#上传提示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自动时间戳命名"><span class="toc-number">5.8.</span> <span class="toc-text">#自动时间戳命名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#检查更新"><span class="toc-number">5.9.</span> <span class="toc-text">#检查更新</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代理设置（v2-0）"><span class="toc-number">5.10.</span> <span class="toc-text">#代理设置（v2.0）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#打开配置文件（v2-0）"><span class="toc-number">5.11.</span> <span class="toc-text">#打开配置文件（v2.0）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#插件设置（v2-0）"><span class="toc-number">6.</span> <span class="toc-text">#插件设置（v2.0）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-number">6.1.</span> <span class="toc-text">#安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更新、卸载与禁用"><span class="toc-number">6.2.</span> <span class="toc-text">#更新、卸载与禁用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置"><span class="toc-number">6.3.</span> <span class="toc-text">#配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用"><span class="toc-number">6.4.</span> <span class="toc-text">#使用</span></a></li></ol></li></ol></div></div><div class="post-content"><p>项目地址：<a href="https://github.com/Molunerfinn/PicGo" target="_blank" rel="noopener">https://github.com/Molunerfinn/PicGo</a></p>
+<p>简介：一款上传图床软件</p>
+<p>更多：</p>
+<p>PicGo的配置文件在不同系统里是不一样的。</p>
+<ul>
+<li>Windows: <code>%APPDATA%\picgo\data.json</code></li>
+<li>Linux: <code>$XDG_CONFIG_HOME/picgo/data.json</code> or <code>~/.config/picgo/data.json</code></li>
+<li>macOS: <code>~/Library/Application\ Support/picgo/data.json</code></li>
+</ul>
+<p>举例，在windows里你可以在：</p>
+<p><code>C:\Users\你的用户名\AppData\Roaming\picgo\data.json</code>找到它。</p>
+<p>在linux里你可以在：</p>
+<p><code>~/.config/picgo/data.json</code>里找到它。</p>
+<p>macOS同理。</p>
+<h2 id="基本操作预览"><a href="#基本操作预览" class="headerlink" title="#基本操作预览"></a><a href="https://picgo.github.io/PicGo-Doc/zh/guide/config.html#%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E9%A2%84%E8%A7%88" target="_blank" rel="noopener">#</a>基本操作预览</h2><p><img src="https://user-images.githubusercontent.com/12621342/34242857-d177930a-e658-11e7-9688-7405851dd5e5.gif" alt="2017-12-09 00 13 05-min"></p>
+<h2 id="上传区"><a href="#上传区" class="headerlink" title="#上传区"></a><a href="https://picgo.github.io/PicGo-Doc/zh/guide/config.html#%E4%B8%8A%E4%BC%A0%E5%8C%BA" target="_blank" rel="noopener">#</a>上传区</h2><p>上传区支持拖拽上传或者点击区域打开文件夹上传</p>
+<h2 id="相册区"><a href="#相册区" class="headerlink" title="#相册区"></a><a href="https://picgo.github.io/PicGo-Doc/zh/guide/config.html#%E7%9B%B8%E5%86%8C%E5%8C%BA" target="_blank" rel="noopener">#</a>相册区</h2><p>支持查看你上传成功的所有图片。点击图片可以预览。点击图片下面的图标可以复制链接或者删除图片（只是删除本地数据，使其不在相册区里出现）</p>
+<h3 id="编辑相册的图片信息（v1-5"><a href="#编辑相册的图片信息（v1-5" class="headerlink" title="#编辑相册的图片信息（v1.5)"></a><a href="https://picgo.github.io/PicGo-Doc/zh/guide/config.html#%E7%BC%96%E8%BE%91%E7%9B%B8%E5%86%8C%E7%9A%84%E5%9B%BE%E7%89%87%E4%BF%A1%E6%81%AF%EF%BC%88v1-5" target="_blank" rel="noopener">#</a>编辑相册的图片信息（v1.5)</h3><p>有些时候可能上传的图片的url事后需要更改，比如修改http到https，比如加上一些操作后缀（例：七牛图床支持的<code>?imgslim</code>）等等。PicGo本次的更新也让你能够更方便地管理你的图片库。</p>
+<p><img src="https://raw.githubusercontent.com/Molunerfinn/test/master/picgo/picgo_edit_info.gif" alt=""></p>
+<h3 id="选择复制的链接格式-v2-0"><a href="#选择复制的链接格式-v2-0" class="headerlink" title="#选择复制的链接格式(v2.0)"></a><a href="https://picgo.github.io/PicGo-Doc/zh/guide/config.html#%E9%80%89%E6%8B%A9%E5%A4%8D%E5%88%B6%E7%9A%84%E9%93%BE%E6%8E%A5%E6%A0%BC%E5%BC%8F-v2-0" target="_blank" rel="noopener">#</a>选择复制的链接格式(v2.0)</h3><p>之前的版本只能在上传区选择复制图片URL的链接格式，这样在相册区就不能很方便地选择复制的链接格式。2.0版本之后改进了这个用户体验，可以在相册区直接选择复制的连接格式了：</p>
+<p><img src="https://user-images.githubusercontent.com/12621342/50515502-17d07400-0ae0-11e9-80b9-c38f25b64922.png" alt=""></p>
+<h2 id="图床区"><a href="#图床区" class="headerlink" title="#图床区"></a><a href="https://picgo.github.io/PicGo-Doc/zh/guide/config.html#%E5%9B%BE%E5%BA%8A%E5%8C%BA" target="_blank" rel="noopener">#</a>图床区</h2><h3 id="微博图床"><a href="#微博图床" class="headerlink" title="#微博图床"></a><a href="https://picgo.github.io/PicGo-Doc/zh/guide/config.html#%E5%BE%AE%E5%8D%9A%E5%9B%BE%E5%BA%8A" target="_blank" rel="noopener">#</a>微博图床</h3><p><img src="https://user-images.githubusercontent.com/12621342/34974486-482c0caa-fac8-11e7-963b-8e0ee5418828.png" alt="image"></p>
+<p>上传的图片不会出现在你的微博相册里。可以选择链接的图片质量，这样在复制到剪贴板里的图片将会对应修改成对应的链接地址。设置你的微博图床可以选择两种模式：</p>
+<ol>
+<li>只需填写你的微博用户名密码即可。<strong>缺点</strong>：上传速度会慢（尤其windows平台），因为要经过很多层验证。并且如果出现需要验证码的情况无法解决。</li>
+<li>只需Cookie上传（PicGo v1.3.2及以上版本支持）。切换成cookie模式。然后先登录<a href="https://weibo.com/" target="_blank" rel="noopener">微博</a>（必须先登录），之后打开<a href="https://weibo.com/minipublish" target="_blank" rel="noopener">minipublish页面</a>，如果你是mac用户，使用<code>command+alt+i</code>，如果你是windows用户，使用<code>F12</code>打开控制台，选择<code>Network</code>标签栏。然后刷新一下页面，找到Network里的<code>minipublish</code>一项，再找到<code>minipublish</code>右侧的<code>Cookie</code>一项，把<code>Cookie</code>冒号后的值全部复制（不要把<code>Cookie:</code>这个也复制了）然后填入<code>PicGo</code>里的Cookie一栏。这样就行了。</li>
+</ol>
+<p><img src="https://user-images.githubusercontent.com/12621342/34974243-fa5d2bf4-fac6-11e7-9869-a6a6e126cd15.png" alt="cookie"></p>
+<h3 id="七牛图床"><a href="#七牛图床" class="headerlink" title="#七牛图床"></a><a href="https://picgo.github.io/PicGo-Doc/zh/guide/config.html#%E4%B8%83%E7%89%9B%E5%9B%BE%E5%BA%8A" target="_blank" rel="noopener">#</a>七牛图床</h3><p><img src="https://user-images.githubusercontent.com/12621342/34243072-191cc4ae-e65a-11e7-99f6-ebe6b7dcaf86.png" alt="image"></p>
+<p>对应的密钥信息需要到七牛自己的控制台里找到。其中需要注意的是，自己的存储空间的区域需要确定：</p>
+<p><img src="https://user-images.githubusercontent.com/12621342/34243146-69af085a-e65a-11e7-965c-2a3d15856480.png" alt="image"></p>
+<p>在配置文件里，存储区域对应的键是<code>area</code>，值是下图所示（如果你是用PicGo-Core或者其他非electron版本的PicGo请注意此项）：</p>
+<p><img src="https://user-images.githubusercontent.com/12621342/50533009-e5189100-0b5c-11e9-9812-438576990828.png" alt="image"></p>
+<p>在配置文件里，存储空间需要</p>
+<p>设定上传地址是指七牛云自动分配给你的网址，或者是你自己绑定的域名（<strong>注意要加<code>http://</code>或者<code>https://</code></strong>）：</p>
+<p><img src="https://user-images.githubusercontent.com/12621342/34245183-c38d9766-e663-11e7-964e-2d7a9ab9e9e9.png" alt="image"></p>
+<p>网址后缀通常是你用到了七牛的图片处理工具的时候会用到的一些处理参数。</p>
+<h3 id="腾讯云COS"><a href="#腾讯云COS" class="headerlink" title="#腾讯云COS"></a><a href="https://picgo.github.io/PicGo-Doc/zh/guide/config.html#%E8%85%BE%E8%AE%AF%E4%BA%91cos" target="_blank" rel="noopener">#</a>腾讯云COS</h3><blockquote>
+<p>从PicGo v1.5版本开始，支持COSv4和v5版本。</p>
+</blockquote>
+<h4 id="V4版本说明"><a href="#V4版本说明" class="headerlink" title="#V4版本说明"></a><a href="https://picgo.github.io/PicGo-Doc/zh/guide/config.html#v4%E7%89%88%E6%9C%AC%E8%AF%B4%E6%98%8E" target="_blank" rel="noopener">#</a>V4版本说明</h4><p>v4版本是这个：</p>
+<p><img src="https://user-images.githubusercontent.com/12621342/35483306-5e7ed570-047b-11e8-95a9-d56a3b4d2ba9.png" alt="image"></p>
+<p>需要登录腾讯云控制台。打开<a href="https://console.qcloud.com/cos4/secret" target="_blank" rel="noopener">密钥管理</a></p>
+<p><img src="https://user-images.githubusercontent.com/12621342/34243294-082c97cc-e65b-11e7-9412-dbc86433a91d.png" alt="image"></p>
+<p>按照对应的提示找到自己的<code>APPID</code>、<code>SecretId</code>、<code>SecretKey</code>。</p>
+<p>存储的空间名是你的bucket名字。</p>
+<p>存储的区域需要额外注意，请到bucket列表里打开需要上传的bucket空间，然后如图可以看到对应的区域以及区域代码，比如我的是<code>tj</code>：</p>
+<p><img src="https://user-images.githubusercontent.com/12621342/34243443-befa715e-e65b-11e7-8404-aa5b8938a82b.png" alt="image"></p>
+<p>对应的区域代码如下：</p>
+<p><img src="https://user-images.githubusercontent.com/12621342/34243476-edcc7798-e65b-11e7-8d59-8714cd0a59aa.png" alt="image"></p>
+<p>如果你想把图片上传到你的bucket空间的某个文件夹下，则需要在PicGo里的<code>指定存储路径</code>里加上你的文件夹路径。比如<code>temp/</code>（注意一定要加<code>/</code>）</p>
+<h4 id="V5版本说明"><a href="#V5版本说明" class="headerlink" title="#V5版本说明"></a><a href="https://picgo.github.io/PicGo-Doc/zh/guide/config.html#v5%E7%89%88%E6%9C%AC%E8%AF%B4%E6%98%8E" target="_blank" rel="noopener">#</a>V5版本说明</h4><p><strong>1.</strong> 获取你的APPID、SecretId和SecretKey</p>
+<p>访问：<a href="https://console.cloud.tencent.com/cam/capi" target="_blank" rel="noopener">https://console.cloud.tencent.com/cam/capi</a></p>
+<p><img src="https://raw.githubusercontent.com/Molunerfinn/test/master/picgo/get_key_id_secret.png" alt=""></p>
+<p><strong>2.</strong> 获取bucket名以及存储区域代号</p>
+<p>访问：<a href="https://console.cloud.tencent.com/cos5/bucket" target="_blank" rel="noopener">https://console.cloud.tencent.com/cos5/bucket</a></p>
+<p>创建一个存储桶。然后找到你的存储桶名和存储区域代号：</p>
+<p><img src="https://raw.githubusercontent.com/Molunerfinn/test/master/picgo/get_bucket_area.png" alt=""></p>
+<p>v5版本的存储桶名称格式是<code>bucket-appId</code>，类似于<code>xxxx-12312313</code>。存储区域代码和v4版本的也有所区别，v5版本的如我的是<code>ap-beijing</code>，别复制错了。</p>
+<p><strong>3.</strong> 选择v5版本并点击确定</p>
+<p><img src="https://raw.githubusercontent.com/Molunerfinn/test/master/picgo/choose_v5.png" alt=""></p>
+<p>然后记得点击<code>设为默认图床</code>，这样上传才会默认走的是腾讯云COS。</p>
+<h3 id="又拍云"><a href="#又拍云" class="headerlink" title="#又拍云"></a><a href="https://picgo.github.io/PicGo-Doc/zh/guide/config.html#%E5%8F%88%E6%8B%8D%E4%BA%91" target="_blank" rel="noopener">#</a>又拍云</h3><p><img src="https://user-images.githubusercontent.com/12621342/34319574-a6e141d0-e820-11e7-9b20-0ec0eb9b36af.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/12621342/34319588-01510cd6-e821-11e7-9eeb-e61265af53ad.png" alt="image"></p>
+<p>存储空间名即为你的服务名，加速域名即为你又拍云分配给你的域名或者是你自己绑定的域名。请注意，加速域名需要加<code>http://</code>或<code>https://</code>。</p>
+<p><img src="https://user-images.githubusercontent.com/12621342/34319600-656c8d80-e821-11e7-8b02-34aa31a2d53a.png" alt="image"></p>
+<p>操作员即为你自己为该存储空间设定的操作员名，密码即为对应的密码。</p>
+<p><img src="https://user-images.githubusercontent.com/12621342/34319609-9fb3307a-e821-11e7-9746-b2e82417ba7f.png" alt="image"></p>
+<p>网址后缀为你针对图片进行的一些处理参数。</p>
+<p>由于又拍云官方没有对云存储有一个直观的控制面板，所以推荐可以采用第三方web面板来查看和操作：</p>
+<p><a href="https://github.com/xcuts/UPYUN-API-Web-Tool" target="_blank" rel="noopener">又拍云存储Web版操作工具</a></p>
+<h3 id="GitHub图床"><a href="#GitHub图床" class="headerlink" title="#GitHub图床"></a><a href="https://picgo.github.io/PicGo-Doc/zh/guide/config.html#github%E5%9B%BE%E5%BA%8A" target="_blank" rel="noopener">#</a>GitHub图床</h3><p><strong>1.</strong> 首先你得有一个GitHub账号。注册GitHub就不用我多言。</p>
+<p><strong>2.</strong> 新建一个仓库</p>
+<p><img src="https://raw.githubusercontent.com/Molunerfinn/test/master/picgo/create_new_repo.png" alt=""></p>
+<p>记下你取的仓库名。</p>
+<p><strong>3.</strong> 生成一个token用于PicGo操作你的仓库：</p>
+<p>访问：<a href="https://github.com/settings/tokens" target="_blank" rel="noopener">https://github.com/settings/tokens</a></p>
+<p>然后点击<code>Generate new token</code>。</p>
+<p><img src="https://raw.githubusercontent.com/Molunerfinn/test/master/picgo/generate_new_token.png" alt=""></p>
+<p>把repo的勾打上即可。然后翻到页面最底部，点击<code>Generate token</code>的绿色按钮生成token。</p>
+<p><img src="https://raw.githubusercontent.com/Molunerfinn/test/master/picgo/20180508210435.png" alt=""></p>
+<p><strong>注意：</strong>这个token生成后只会显示一次！你要把这个token复制一下存到其他地方以备以后要用。</p>
+<p><img src="https://raw.githubusercontent.com/Molunerfinn/test/master/picgo/copy_token.png" alt=""></p>
+<p><strong>4.</strong> 配置PicGo</p>
+<p><strong>注意：</strong>仓库名的格式是<code>用户名/仓库</code>，比如我创建了一个叫做<code>test</code>的仓库，在PicGo里我要设定的仓库名就是<code>Molunerfinn/test</code>。一般我们选择<code>master</code>分支即可。然后记得点击确定以生效，然后可以点击<code>设为默认图床</code>来确保上传的图床是GitHub。</p>
+<p><img src="https://raw.githubusercontent.com/Molunerfinn/test/master/picgo/setup_github.png" alt=""></p>
+<p>至此配置完毕，已经可以使用了。当你上传的时候，你会发现你的仓库里也会增加新的图片了：</p>
+<p><img src="https://raw.githubusercontent.com/Molunerfinn/test/master/picgo/success.png" alt=""></p>
+<h3 id="阿里云OSS"><a href="#阿里云OSS" class="headerlink" title="#阿里云OSS"></a><a href="https://picgo.github.io/PicGo-Doc/zh/guide/config.html#%E9%98%BF%E9%87%8C%E4%BA%91oss" target="_blank" rel="noopener">#</a>阿里云OSS</h3><p><img src="https://raw.githubusercontent.com/Molunerfinn/test/master/picgo/aliyun.png" alt=""></p>
+<p>首先先在阿里云OSS的<a href="https://usercenter.console.aliyun.com/#/manage/ak" target="_blank" rel="noopener">控制台</a>里找到你的<code>accessKeyId</code>和<code>accessKeySecret</code>： <img src="https://raw.githubusercontent.com/Molunerfinn/test/master/picgo/aliyun-key.png" alt=""></p>
+<p>创建一个<code>bucket</code>后，存储空间名即为<code>bucket</code>:</p>
+<p><img src="https://raw.githubusercontent.com/Molunerfinn/test/master/picgo/aliyun-bucket.png" alt=""></p>
+<p>确认你的<a href="https://www.alibabacloud.com/help/zh/doc-detail/31837.htm?spm=a2c63.p38356.a3.3.179112f0PBtYui" target="_blank" rel="noopener">存储区域</a>的代码：</p>
+<p><img src="https://raw.githubusercontent.com/Molunerfinn/test/master/picgo/aliyun-area.png" alt=""></p>
+<p>也可以在bucket页面找到：</p>
+<p><img src="https://raw.githubusercontent.com/Molunerfinn/test/master/picgo/aliyun-bucket-2.png" alt="">如上图，存储区域就是<code>oss-cn-beijing</code></p>
+<p>存储路径比如<code>img/</code>的话，上传的图片会默认放在OSS的<code>img</code>文件夹下。注意存储路径一定要以<code>/</code>结尾！存储路径是可选的，如果不需要请留空。</p>
+<h3 id="Imgur图床"><a href="#Imgur图床" class="headerlink" title="#Imgur图床"></a><a href="https://picgo.github.io/PicGo-Doc/zh/guide/config.html#imgur%E5%9B%BE%E5%BA%8A" target="_blank" rel="noopener">#</a>Imgur图床</h3><p><img src="https://raw.githubusercontent.com/Molunerfinn/test/master/picgo/imgur-option.png" alt=""></p>
+<p>登录Imgur后，在<a href="https://api.imgur.com/oauth2/addclient" target="_blank" rel="noopener">此处</a>生成你的ClientId，记得选第二项，不需要callbackurl的。</p>
+<p><img src="https://raw.githubusercontent.com/Molunerfinn/test/master/picgo/imgur-clientid.png" alt=""></p>
+<p>于是你可以拿到你的clientId:</p>
+<p><img src="https://raw.githubusercontent.com/Molunerfinn/test/master/picgo/imgur-client-id-2.png" alt=""></p>
+<p><strong>注意</strong>：imgur貌似对中国大陆的IP和请求做出了限制，所以如果clientId没错的情况下无法上传图片的时候，可以考虑配置代理设置。默认只支持HTTP代理。如果觉得设置麻烦的可以考虑使用SM.MS图床。</p>
+<h3 id="更多其他图床"><a href="#更多其他图床" class="headerlink" title="#更多其他图床"></a><a href="https://picgo.github.io/PicGo-Doc/zh/guide/config.html#%E6%9B%B4%E5%A4%9A%E5%85%B6%E4%BB%96%E5%9B%BE%E5%BA%8A" target="_blank" rel="noopener">#</a>更多其他图床</h3><p>本体将不再增加其他图床支持，如果你有其他图床的上传需求，请自行参考<a href="https://picgo.github.io/PicGo-Core-Doc/" target="_blank" rel="noopener">PicGo-Core</a>，为PicGo开发第三方图床插件吧！</p>
+<hr>
+<h2 id="PicGo设置"><a href="#PicGo设置" class="headerlink" title="#PicGo设置"></a><a href="https://picgo.github.io/PicGo-Doc/zh/guide/config.html#picgo%E8%AE%BE%E7%BD%AE" target="_blank" rel="noopener">#</a>PicGo设置</h2><h3 id="自定义快捷键"><a href="#自定义快捷键" class="headerlink" title="#自定义快捷键"></a><a href="https://picgo.github.io/PicGo-Doc/zh/guide/config.html#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BF%AB%E6%8D%B7%E9%94%AE" target="_blank" rel="noopener">#</a>自定义快捷键</h3><p>PicGo v1.4.0版本开始支持自定义快捷键（默认快捷键是<code>Cmd+Shift+P</code>【Mac】或者<code>Ctrl+Shift+P</code>【Windows】），点击侧边栏PicGo设置选中修改快捷键：</p>
+<p><img src="https://raw.githubusercontent.com/Molunerfinn/test/master/picgo/change-quick-key.png" alt="image"></p>
+<p>在打开的dialog里，点击input框，然后按下你想要的快捷键（也可以是组合键）。然后点击<strong>确定保存</strong>（否则不生效！）</p>
+<p><img src="https://user-images.githubusercontent.com/12621342/35553216-ea22e18c-05d1-11e8-8913-047047b92c09.png" alt="image"></p>
+<h3 id="自定义链接格式"><a href="#自定义链接格式" class="headerlink" title="#自定义链接格式"></a><a href="https://picgo.github.io/PicGo-Doc/zh/guide/config.html#%E8%87%AA%E5%AE%9A%E4%B9%89%E9%93%BE%E6%8E%A5%E6%A0%BC%E5%BC%8F" target="_blank" rel="noopener">#</a>自定义链接格式</h3><p>PicGo预置的有四种链接格式：<code>Markdown</code>`HTML<code>\</code>URL<code>\</code>UBB<code>。如果你都不喜欢，想要自定义链接格式，可以选择</code>Custom<code>，然后在PicGo设置里点击</code>自定义链接格式`，然后你可以配置自己想要的复制的链接格式。</p>
+<p><img src="https://raw.githubusercontent.com/Molunerfinn/test/master/picgo/custom.png" alt="image"></p>
+<h3 id="开关更新助手"><a href="#开关更新助手" class="headerlink" title="#开关更新助手"></a><a href="https://picgo.github.io/PicGo-Doc/zh/guide/config.html#%E5%BC%80%E5%85%B3%E6%9B%B4%E6%96%B0%E5%8A%A9%E6%89%8B" target="_blank" rel="noopener">#</a>开关更新助手</h3><p>PicGo每次启动的时候会去检查最新版本。如果当前版本低于最新版本会提示你更新。如果你不想接到这条消息，那么可以在PicGo设置里把<code>打开更新助手</code>这个选项关闭。<strong>推荐大家打开这个开关，新的版本通常会修复bug已经加入新的功能，让PicGo更好用~</strong></p>
+<h3 id="开机自启"><a href="#开机自启" class="headerlink" title="#开机自启"></a><a href="https://picgo.github.io/PicGo-Doc/zh/guide/config.html#%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF" target="_blank" rel="noopener">#</a>开机自启</h3><p>选择是否开机自启动。</p>
+<p><img src="https://raw.githubusercontent.com/Molunerfinn/test/master/picgo/autoStart.png" alt=""></p>
+<h3 id="上传前重命名"><a href="#上传前重命名" class="headerlink" title="#上传前重命名"></a><a href="https://picgo.github.io/PicGo-Doc/zh/guide/config.html#%E4%B8%8A%E4%BC%A0%E5%89%8D%E9%87%8D%E5%91%BD%E5%90%8D" target="_blank" rel="noopener">#</a>上传前重命名</h3><p>如果你想在图片上传前能够有机会改动你的图片名，那么可以选择开启图片上传前重命名：</p>
+<p><img src="https://raw.githubusercontent.com/Molunerfinn/test/master/picgo/rename_before_upload.png" alt=""></p>
+<p>之后你在上传的时候就会弹出一个小窗口让你重命名文件。如果你不想重命名，点击确定、取消或者直接关闭这个窗口都是可以的。如果你想要重命名就在输入框里输入想要更改的名字，然后点击确定即可。另外这个特性也支持批量上传，如下：</p>
+<p><img src="https://raw.githubusercontent.com/Molunerfinn/test/master/picgo/picgo_rename.gif" alt=""></p>
+<h3 id="选择想要显示的图床"><a href="#选择想要显示的图床" class="headerlink" title="#选择想要显示的图床"></a><a href="https://picgo.github.io/PicGo-Doc/zh/guide/config.html#%E9%80%89%E6%8B%A9%E6%83%B3%E8%A6%81%E6%98%BE%E7%A4%BA%E7%9A%84%E5%9B%BE%E5%BA%8A" target="_blank" rel="noopener">#</a>选择想要显示的图床</h3><p>很多时候你并不会使用上PicGo给你提供的全部的图床。所以为了精简显示你可以只选择你想要的图床来显示，这样侧边栏也就不会出现滚动条了。不过需要注意的是，这个仅仅是显示/隐藏而并不是剔除相应的功能。假如你隐藏了七牛云，你依然是可以通过七牛云来上传图片的。</p>
+<p><img src="https://raw.githubusercontent.com/Molunerfinn/test/master/picgo/picbed-choose.gif" alt=""></p>
+<h3 id="上传提示"><a href="#上传提示" class="headerlink" title="#上传提示"></a><a href="https://picgo.github.io/PicGo-Doc/zh/guide/config.html#%E4%B8%8A%E4%BC%A0%E6%8F%90%E7%A4%BA" target="_blank" rel="noopener">#</a>上传提示</h3><p><img src="https://camo.githubusercontent.com/763757f281c0a19ee526f26bbb1a2814f164879b/68747470733a2f2f692e6c6f6c692e6e65742f323031382f30362f30352f356231363832666134316337302e706e67" alt="">打开之后会在每次上传图片的时候弹出提示框提示正在上传。 <strong>如果你发现打开之后，没有效果，请注意看看是不是你关闭了系统级别的消息通知选项，因为PicGo调用的是系统级别的消息通知栏。</strong></p>
+<h3 id="自动时间戳命名"><a href="#自动时间戳命名" class="headerlink" title="#自动时间戳命名"></a><a href="https://picgo.github.io/PicGo-Doc/zh/guide/config.html#%E8%87%AA%E5%8A%A8%E6%97%B6%E9%97%B4%E6%88%B3%E5%91%BD%E5%90%8D" target="_blank" rel="noopener">#</a>自动时间戳命名</h3><p><img src="https://camo.githubusercontent.com/25e5d680bfd19a086611871ac4621c5b079a9c99/68747470733a2f2f692e6c6f6c692e6e65742f323031382f30362f30352f356231363833623334366236372e706e67" alt="">开启之后会自动将上传的文件名替换成时间戳： ![](<a href="https://user-images.githubusercontent.com/12621342/40976264-2de18afe-6900-11e8-8f35-746820632eb8.png）" target="_blank" rel="noopener">https://user-images.githubusercontent.com/12621342/40976264-2de18afe-6900-11e8-8f35-746820632eb8.png）</a></p>
+<h3 id="检查更新"><a href="#检查更新" class="headerlink" title="#检查更新"></a><a href="https://picgo.github.io/PicGo-Doc/zh/guide/config.html#%E6%A3%80%E6%9F%A5%E6%9B%B4%E6%96%B0" target="_blank" rel="noopener">#</a>检查更新</h3><p><img src="https://user-images.githubusercontent.com/12621342/40976407-ad43d07c-6900-11e8-854f-15e1c41a7d8d.png" alt="">用以主动发起更新检查。</p>
+<h3 id="代理设置（v2-0）"><a href="#代理设置（v2-0）" class="headerlink" title="#代理设置（v2.0）"></a><a href="https://picgo.github.io/PicGo-Doc/zh/guide/config.html#%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE%EF%BC%88v2-0%EF%BC%89" target="_blank" rel="noopener">#</a>代理设置（v2.0）</h3><p>2.0版本之后，支持简单设定HTTP代理。在<code>设置代理</code>一项处点击即可。 <strong>未来不会支持复杂的代理设置，因为跟底层有关，只能支持简单HTTP代理。</strong></p>
+<p><img src="https://user-images.githubusercontent.com/12621342/50515474-ea83c600-0adf-11e9-8022-52f4ab9e0ea5.png" alt=""></p>
+<h3 id="打开配置文件（v2-0）"><a href="#打开配置文件（v2-0）" class="headerlink" title="#打开配置文件（v2.0）"></a><a href="https://picgo.github.io/PicGo-Doc/zh/guide/config.html#%E6%89%93%E5%BC%80%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%EF%BC%88v2-0%EF%BC%89" target="_blank" rel="noopener">#</a>打开配置文件（v2.0）</h3><p>2.0版本之后，你可以简单通过点击<code>打开配置文件</code>来打开配置文件，查看你上传的图片、你的图床设置等。</p>
+<p><img src="https://user-images.githubusercontent.com/12621342/50515474-ea83c600-0adf-11e9-8022-52f4ab9e0ea5.png" alt=""></p>
+<h2 id="插件设置（v2-0）"><a href="#插件设置（v2-0）" class="headerlink" title="#插件设置（v2.0）"></a><a href="https://picgo.github.io/PicGo-Doc/zh/guide/config.html#%E6%8F%92%E4%BB%B6%E8%AE%BE%E7%BD%AE%EF%BC%88v2-0%EF%BC%89" target="_blank" rel="noopener">#</a>插件设置（v2.0）</h2><p>2.0版本之后，你可以简单通过<code>插件设置</code>页面，安装、更新、禁用、卸载、配置、使用插件。</p>
+<p><img src="https://user-images.githubusercontent.com/12621342/50515434-bc9e8180-0adf-11e9-8c71-0e39973c06b1.png" alt=""></p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="#安装"></a><a href="https://picgo.github.io/PicGo-Doc/zh/guide/config.html#%E5%AE%89%E8%A3%85" target="_blank" rel="noopener">#</a>安装</h3><p>注意</p>
+<p>你必须安装<a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a>之后才能安装PicGo的插件，因为PicGo要使用<code>npm</code>来安装插件。</p>
+<p>在插件界面的搜索栏搜索插件名。PicGo的插件名以<code>picgo-plugin-</code>为前缀，你只需要搜前缀后的名字即可。比如一个<code>picgo-plugin-wow</code>的插件你只需要搜索<code>wow</code>即可。</p>
+<p>搜到了插件之后只要点击右下角的<code>安装</code>即可。如果遇到<code>未对GUI优化</code>的提示，可以询问一下插件作者，这个插件适不适合在PicGo软件上使用，否则它有可能只是个命令行插件。</p>
+<h3 id="更新、卸载与禁用"><a href="#更新、卸载与禁用" class="headerlink" title="#更新、卸载与禁用"></a><a href="https://picgo.github.io/PicGo-Doc/zh/guide/config.html#%E6%9B%B4%E6%96%B0%E3%80%81%E5%8D%B8%E8%BD%BD%E4%B8%8E%E7%A6%81%E7%94%A8" target="_blank" rel="noopener">#</a>更新、卸载与禁用</h3><p>皆可点击插件右下角的齿轮按钮，在弹出的菜单中选择。</p>
+<p>注意</p>
+<p>其中如果你选择了<code>更新</code>之后，PicGo需要重启一遍才能使用更新后的插件，PicGo会在插件页面给出<code>重启</code>按钮，点击即可。 <strong>只是关闭主窗口再打开是不行的，必须完全退出PicGo进程再打开PicGo。</strong></p>
+<p><img src="https://raw.githubusercontent.com/Molunerfinn/test/master/picgo/20190113155828.png" alt=""></p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="#配置"></a><a href="https://picgo.github.io/PicGo-Doc/zh/guide/config.html#%E9%85%8D%E7%BD%AE" target="_blank" rel="noopener">#</a>配置</h3><p>有的插件拥有配置项，可以直接点击右下角齿轮，点击<code>配置xxx</code>进行配置：</p>
+<p><img src="https://raw.githubusercontent.com/Molunerfinn/test/master/picgo/20190113160001.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Molunerfinn/test/master/picgo/20190113160029.png" alt=""></p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="#使用"></a><a href="https://picgo.github.io/PicGo-Doc/zh/guide/config.html#%E4%BD%BF%E7%94%A8" target="_blank" rel="noopener">#</a>使用</h3><p>有的插件拥有自有菜单项，可以直接点击右下角齿轮后，找到插件自有菜单区，点击使用：</p>
+<p><img src="https://i.loli.net/2019/01/12/5c39a2f60a32a.png" alt=""></p>
+<p><img src="https://i.loli.net/2019/01/12/5c39aa4dab0b4.png" alt=""></p>
+<hr>
+<div align="center"><br><br>        发现更多更好玩的，欢迎关注我的微信公众号:<span style="color:red;"> FullStacker </span><br><br>        <img src="/img/fullstacker.jpg" height="400px" width="400px"><br>    </div>
+</div><iframe src="/donate/?AliPayQR=/img/alipay.jpg&amp;WeChatQR=/img/wechat.jpg&amp;GitHub=null&amp;BTCQR=null&amp;BTCKEY=null&amp;PayPal=null" style="overflow-x:hidden; overflow-y:hidden; border:0xp none #fff; min-height:300px; width:100%;" frameborder="0" scrolling="no"></iframe><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a class="article-share-link" data-url="https://itgoyo.github.io/2019/01/14/PicGo图床软件使用教程/" data-id="ck5kuvllx001mapxw8rxjhix2" data-qrcode="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACuUlEQVR42u3awW6kMBAE0Pn/n55Ie00CVW6bzEqP0wgx4MfBbsr9esXH+9+Rn/9+zfUd8mteJw48PDy8paH/duQP+O2a5Mz1fa7P3LwgPDw8vGO860k/mbjbWfr6TPKvaCR4eHh4f8prH5ksNu3Cg4eHh/f/8q6v2Ty54+Hh4X0kr53E26BhLUpIwpFtWQseHh5ezGs3wD7h98H9PTw8PLzBrvpkM2zeFvAeH3h4eHgneEnZOgkg8rI4Abdba3h4eHhP8vLP+5aURLp5Y0H0ovHw8PAO8PLWqITXLhV5hjBZbPDw8PB28ZJJv6W2DQH5wlAvEnh4eHgHePPmpzYayM/kEXCxd4eHh4e3lZdP9/kE3cYEa/HETfyBh4eHt5XXPniyiTVvQci3wRbfKx4eHl7Jy89MNvKTcHZbYY2Hh4d3gJdP0Gub9LvaqiZtYXh4eHh7ee0Wfl7ytnFtGyJHCwweHh7eMd6u0GFDI+m4sL5pusLDw8Mb8/KAoG1Xbe/2Do78KwEPDw/vGV6RXpT4tVaDtkH2ZmHAw8PD28pr/7Z202TQu0JhPDw8vHO8tYfl/2obrdYaDopUAw8PD2/MWxvQdcy6Fi6stXZFnwR4eHh4W3lrg8jBbSm8azH7oTMCDw8PbxNvbcO+jR7adCR5uXXJjoeHh7eJNw9kkzCindDX2gh+uAYPDw/vEd5a3NCWwvmCNAl/8fDw8E7w1gY032laDBTWUmo8PDy8rbxJITspfJPh5g0ExbqHh4eHN+ZN6s88tmibEtrXhIeHh/c8r10M8ih2UoLnUcXNS8fDw8M7xss/8tfK7nlwvG1Nw8PDw3uQ1xbQ7VPWRn4TduDh4eF9AC8vfPPwog0aivN4eHh4x3htGJHnpclUPinfRw0EeHh4eEu8yQZYXuDmwWvbnvWaH3h4eHgp7wsR0RbbT2ys/wAAAABJRU5ErkJggg==">分享</a><div class="tags"><a href="/tags/Github/">Github</a></div><div class="post-nav"><a class="pre" href="/2019/01/16/晨间日记的奇迹/">晨间日记的奇迹</a><a class="next" href="/2019/01/14/Fuzzy_Finder(fzf+vim)_使用全指南/">Fuzzy Finder(fzf+vim) 使用全指南</a></div><div id="disqus_thread"><div class="btn_click_load"><button class="disqus_click_btn">阅读评论 「请确保 disqus.com 可以正常加载」</button></div><script>var disqus_shortname = 'itgoyo';
+var disqus_identifier = '2019/01/14/PicGo图床软件使用教程/';
+var disqus_title = 'PicGo图床软件使用教程';
+var disqus_url = 'https://itgoyo.github.io/2019/01/14/PicGo图床软件使用教程/';
+$('.btn_click_load').click(function() {
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  $('.btn_click_load').css('display','none');
+});
+$.ajax({
+  url: 'https://disqus.com/next/config.json',
+  timeout: 3000,
+  type: 'GET',
+  success: (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    $('.btn_click_load').css('display','none');
+  })(),
+  error: function() {
+    $('.btn_click_load').css('display','block');
+  }
+});</script><script id="dsq-count-scr" src="//itgoyo.disqus.com/count.js" async></script></div><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'true' == true ? true : false;
+var verify = 'false' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'HzQ14MvDJNcJ4Y73LGzWkuKD-gzGzoHsz',
+  appKey:'gPggWGa1wwwhXbzuhnSQyQDx',
+  placeholder:'Just so so',
+  avatar:'mm',
+  guest_info:guest_info,
+  pageSize:'10'
+})</script></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Go/">Go</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mac/">Mac</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vim/">Vim</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/">开发工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/开源项目/">开源项目</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活随笔/">生活随笔</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程相关/">编程相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/生活随笔/" style="font-size: 15px;">生活随笔</a> <a href="/tags/Program/" style="font-size: 15px;">Program</a> <a href="/tags/Github/" style="font-size: 15px;">Github</a> <a href="/tags/Go/" style="font-size: 15px;">Go</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/Android/" style="font-size: 15px;">Android</a> <a href="/tags/Mac/" style="font-size: 15px;">Mac</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/Shadowsocks/" style="font-size: 15px;">Shadowsocks</a> <a href="/tags/科学上网/" style="font-size: 15px;">科学上网</a> <a href="/tags/Vim/" style="font-size: 15px;">Vim</a> <a href="/tags/插件/" style="font-size: 15px;">插件</a> <a href="/tags/读书笔记/" style="font-size: 15px;">读书笔记</a> <a href="/tags/读书/" style="font-size: 15px;">读书</a> <a href="/tags/记忆力/" style="font-size: 15px;">记忆力</a> <a href="/tags/Markdown/" style="font-size: 15px;">Markdown</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/shell/" style="font-size: 15px;">shell</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/i3/" style="font-size: 15px;">i3</a> <a href="/tags/Rofi/" style="font-size: 15px;">Rofi</a> <a href="/tags/ncmpcpp/" style="font-size: 15px;">ncmpcpp</a> <a href="/tags/Music/" style="font-size: 15px;">Music</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/11/29/2019一整年的总结与一些个人反思/">2019一整年的总结与一些个人反思</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/19/Docker容器造化钟神秀/">Docker容器造化钟神秀</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/17/Tmux的使用教程/">Tmux的使用教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/16/cnBlogs博客园主题样式美化/">cnBlogs博客园主题样式美化</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/13/PicGo-Github-CDN加速图床-免费的难道它不香吗？/">PicGo+Github+CDN加速图床,免费的难道它不香吗？</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/02/如何免费做一个属于自己稳定有效的图床/">如何免费做一个属于自己稳定有效的图床</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/02/关于自己每日计划是如何制定的/">关于自己每日计划是如何制定的</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/31/java多线程的4种实现方式/">java多线程的4种实现方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/31/2020跨年文案/">2020跨年文案</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/03/Go语言数据类型/">Go语言数据类型</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-comment-o"> 最近评论</i></div><script type="text/javascript" src="//itgoyo.disqus.com/recent_comments_widget.js?num_items=5&amp;hide_avatars=1&amp;avatar_size=32&amp;excerpt_length=20&amp;hide_mods=1"></script></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://github.com/itgoyo" title="Github" target="_blank">Github</a><ul></ul><a href="https://space.bilibili.com/12767066/#/" title="BiliBili" target="_blank">BiliBili</a><ul></ul><a href="https://www.zhihu.com/people/mkosto/activities" title="ZhiHu" target="_blank">ZhiHu</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><p align="center">
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+</p><div id="footer">Copyright © 2020 <a href="/." rel="nofollow">itgoyo'blog.</a> 作者Github:<a rel="nofollow" target="_blank" href="https://github.com/itgoyo"> itgoyo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/itgoyo"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.2.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.2.5/jquery.fancybox.min.css"><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+   search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = '//hm.baidu.com/hm.js?' + 'c16d3c10c9ea6c6fe749d9926d52b0d6';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+  })();
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html><div>
+<a href="https://github.com/itgoyo"><img class="nofancybox" ;="" style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+</div>

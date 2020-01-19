@@ -1,0 +1,100 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.8.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title> | itgoyo'blog</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/7.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({google_ad_client: "ca-pub-5803807445434654", enable_page_level_ads: true});</script></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">itgoyo'blog</h1><a id="logo" href="/.">itgoyo'blog</a><p class="description">Talk is cheap,Show me the girl.</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 主页</i></a><a href="/archives/"><i class="fa fa-archive"> 文章</i></a><a href="/history"><i class="fa fa-calendar"> 历史</i></a><a href="/books"><i class="fa fa-book"> 书籍</i></a><a href="/movies"><i class="fa fa-film"> 电影</i></a><a href="/games"><i class="fa fa-gamepad"> 游戏</i></a><a href="https://itgoyo.github.io/gallery.html"><i class="fa fa-photo"> 相册</i></a><a href="https://itgoyo.github.io/resume"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> RSS</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title"></h1><div class="post-meta">Jan 16, 2020<script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> 阅读</span></span><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5803807445434654"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div><a class="disqus-comment-count" data-disqus-identifier="2020/01/16/cnBlogs博客园主题样式美化/" href="/2020/01/16/cnBlogs博客园主题样式美化/#disqus_thread"></a><a class="disqus-comment-count" href="/2020/01/16/cnBlogs博客园主题样式美化/#vcomment"><span class="valine-comment-count" data-xid="/2020/01/16/cnBlogs博客园主题样式美化/"></span><span>条评论</span></a><div class="post-content"><p>Tmux Resurrect 无须任何配置，就能够备份 tmux 会话中的各种细节，包括窗口、面板的顺序、布局、工作目录，运行程序等等数据。因此它能在系统重启后完全地恢复会话。由于其幂等的恢复机制，它不会试图去恢复一个已经存在的窗口或者面板，所以，即使你不小心多恢复了几次会话，它也不会出现问题，这样主动恢复时我们就不必担心手抖多按了一次。另外，如果你是 <a href="https://github.com/tmuxinator/tmuxinator" target="_blank" rel="noopener">tmuxinator</a> 用户，我也建议你迁移到 tmux-resurrect 插件上来，具体请参考 <a href="https://github.com/tmux-plugins/tmux-resurrect/blob/master/docs/migrating_from_tmuxinator.md#migrating-from-tmuxinator" target="_blank" rel="noopener">Migrating from <code>tmuxinator</code></a>。</p>
+<p>Tmux Resurrec 安装过程如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd ~/.tmux</span><br><span class="line">mkdir plugins</span><br><span class="line">git clone https://github.com/tmux-plugins/tmux-resurrect.git</span><br></pre></td></tr></table></figure>
+<p>安装后需在 <code>~/.tmux.conf</code> 中增加一行配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">run-shell ~/.tmux/plugins/tmux-resurrect/resurrect.tmux</span><br></pre></td></tr></table></figure>
+<p>至此安装成功，按下 <code>prefix + r</code> 重载 tmux 配置。</p>
+<p>Tmux Resurrec 提供如下两个操作：</p>
+<ul>
+<li><strong>保存</strong>，快捷指令是 <code>prefix</code> + <code>Ctrl + s</code>，tmux 状态栏在保存开始，保存后分别提示”Saving…”，”Tmux environment saved !”。</li>
+<li><strong>恢复</strong>，快捷指令是 <code>prefix</code> + <code>Ctrl + r</code>，tmux 状态栏在恢复开始，恢复后分别提示”Restoring…”，”Tmux restore complete !”。</li>
+</ul>
+<p>保存时，tmux 会话的详细信息会以文本文件的格式保存到 <code>~/.tmux/resurrect</code> 目录，恢复时则从此处读取，由于数据文件是明文的，因此你完全可以自由管理或者编辑这些会话状态文件（如果备份频繁，记得定期清除历史备份）。</p>
+<p><strong>可选的配置</strong></p>
+<p>Tmux Resurrec 本身是免配置开箱即用的，但同时也提供了如下选项以便修改其默认设置。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">set -g @resurrect-save &apos;S&apos; # 修改保存指令为S</span><br><span class="line">set -g @resurrect-restore &apos;R&apos; 修改恢复指令为R</span><br><span class="line"># 修改会话数据的保持路径，此处不能使用除了$HOME, $HOSTNAME, ~之外的环境变量</span><br><span class="line">set -g @resurrect-dir &apos;/some/path&apos;</span><br></pre></td></tr></table></figure>
+<p>默认情况下只有一个保守的列表项（即 <code>vi vim nvim emacs man less more tail top htop irssi mutt</code>）可以恢复，对此 <a href="https://github.com/tmux-plugins/tmux-resurrect/blob/master/docs/restoring_programs.md" target="_blank" rel="noopener">Restoring programs doc</a> 解释了怎么去恢复额外的项目。</p>
+<p><strong>进阶的备份</strong></p>
+<p>除了基础备份外，Tmux Resurrec 还提供<strong>进阶的备份功能</strong>，如下所示：</p>
+<ul>
+<li>恢复 vim 和 neovim 会话</li>
+<li>恢复面板内容</li>
+<li>恢复 shell 的历史记录（实验性功能）</li>
+</ul>
+<p>进阶的备份功能默认不开启，需要特别配置。</p>
+<p>1）恢复 vim 和 neovim 会话，需要完成如下两步：</p>
+<ul>
+<li><p>通过 vim 的 vim-obsession 插件保存 vim/neovim 会话。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd ~/.vim/bundle</span><br><span class="line">git clone git://github.com/tpope/vim-obsession.git</span><br><span class="line">vim -u NONE -c &quot;helptags vim-obsession/doc&quot; -c q</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在 <code>~/.tmux.conf</code> 中增加两行配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set -g @resurrect-strategy-vim &apos;session&apos; # for vim</span><br><span class="line">set -g @resurrect-strategy-nvim &apos;session&apos; # for neovim</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>2）恢复面板内容，需在 <code>~/.tmux.conf</code> 中增加一行配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set -g @resurrect-capture-pane-contents &apos;on&apos; # 开启恢复面板内容功能</span><br></pre></td></tr></table></figure>
+<p>目前使用该功能时，请确保 tmux 的 <code>default-command</code> 没有包含 <code>&amp;&amp;</code> 或者 <code>||</code> 操作符，否则将导致 <a href="https://github.com/tmux-plugins/tmux-resurrect/issues/98" target="_blank" rel="noopener">bug</a>。（查看 <code>default-command</code> 的值，请使用命令 <code>tmux show -g default-command</code>。）</p>
+<p>3）恢复 shell 的历史记录，需在 <code>~/.tmux.conf</code> 中增加一行配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set -g @resurrect-save-shell-history &apos;on&apos;</span><br></pre></td></tr></table></figure>
+<p>由于技术的限制，保存时，只有无前台任务运行的面板，它的 shell 历史记录才能被保存。</p>
+</div><iframe src="/donate/?AliPayQR=/img/alipay.jpg&amp;WeChatQR=/img/wechat.jpg&amp;GitHub=null&amp;BTCQR=null&amp;BTCKEY=null&amp;PayPal=null" style="overflow-x:hidden; overflow-y:hidden; border:0xp none #fff; min-height:300px; width:100%;" frameborder="0" scrolling="no"></iframe><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a class="article-share-link" data-url="https://itgoyo.github.io/2020/01/16/cnBlogs博客园主题样式美化/" data-id="ck5kuvlmo003fapxw9tfzeol6" data-qrcode="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACuElEQVR42u3aQW7DMAwEwPz/0+01RWtnl5KCFBifjMZWNCkgEiQfj/j6erp+/+Xqen7y6j5Z8/e7my88PDy8ha3fL32/lQRw//dkb/me8fDw8E7zrpa+v7/Hr2Dy9V9Y8PDw8D6A14aTFpMHBjw8PLz/y8vLFi07D054eHh47+fNjvgEubLOrIiMh4eHd5qXd5E+5/5Ifw8PDw9vuau+ktreh4f7NH1lWOHHW3h4eHgHePmBm6StszS3TaPrFhoeHh7eVl5ycLfF07xVlpQz8hX+eBcPDw/vAG8WAJK0OG+DtUMJeSsODw8P7xwvf/n+sM7Lvu2n+dEf9ffw8PDwlnmzQsBKorwr/NRxDw8PD2+Zlx/6bQMsb4zlw1VtkQIPDw/vBC9BrhcskuiUB4x6V3h4eHjHeHlDa2Vc4ETtOSrj4uHh4W3izcqj7ZDBLEHPnx/+3/Dw8PBGvPUWfluqaIu2beD541vw8PDwDvDaoz9Jl/PQkhdth4MCeHh4eFt5bXK80tTP2bNBhMuIh4eHh3eAl7eaVoal9gab6Hk8PDy8A7z60bjZPytJJGvmn+Lh4eGd5iWN/PVjvR3wyq8oscbDw8PbyptRZz9EHkLaEIWHh4f3Tl7b5k9+gvWRqfVhBTw8PLz38/INtcNb7RjBLPDg4eHhvYeXl1lnASMvVbQDB48648bDw8Nb5c0O7nb0Kl+zaHRdBQ88PDy8Y7zZuEBSRJgl6LsaY3h4eHh7eV/l1WLy55MGW92Ww8PDwzvAm52xs+GnNlmf3W8IIXh4eHgBb9aeX0+7V9L9IjDg4eHhHeO1R/x9Iz9PuGcjX8WTeHh4eB/AywsQu/Cznx4PDw/vM3m7irOzMm4UPPDw8PCO8WajTvlb7be3xYgXgQEPDw9vK29WTm3T7najbaDa0N/Dw8PDe/3WN5yzVLnNkBsXAAAAAElFTkSuQmCC">分享</a><div class="tags"></div><div class="post-nav"><a class="pre" href="/2020/01/17/Tmux的使用教程/">Tmux的使用教程</a><a class="next" href="/2020/01/13/PicGo-Github-CDN加速图床-免费的难道它不香吗？/">PicGo+Github+CDN加速图床,免费的难道它不香吗？</a></div><div id="disqus_thread"><div class="btn_click_load"><button class="disqus_click_btn">阅读评论 「请确保 disqus.com 可以正常加载」</button></div><script>var disqus_shortname = 'itgoyo';
+var disqus_identifier = '2020/01/16/cnBlogs博客园主题样式美化/';
+var disqus_title = '';
+var disqus_url = 'https://itgoyo.github.io/2020/01/16/cnBlogs博客园主题样式美化/';
+$('.btn_click_load').click(function() {
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  $('.btn_click_load').css('display','none');
+});
+$.ajax({
+  url: 'https://disqus.com/next/config.json',
+  timeout: 3000,
+  type: 'GET',
+  success: (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    $('.btn_click_load').css('display','none');
+  })(),
+  error: function() {
+    $('.btn_click_load').css('display','block');
+  }
+});</script><script id="dsq-count-scr" src="//itgoyo.disqus.com/count.js" async></script></div><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'true' == true ? true : false;
+var verify = 'false' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'HzQ14MvDJNcJ4Y73LGzWkuKD-gzGzoHsz',
+  appKey:'gPggWGa1wwwhXbzuhnSQyQDx',
+  placeholder:'Just so so',
+  avatar:'mm',
+  guest_info:guest_info,
+  pageSize:'10'
+})</script></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Go/">Go</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mac/">Mac</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vim/">Vim</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/">开发工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/开源项目/">开源项目</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活随笔/">生活随笔</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程相关/">编程相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/生活随笔/" style="font-size: 15px;">生活随笔</a> <a href="/tags/Program/" style="font-size: 15px;">Program</a> <a href="/tags/Github/" style="font-size: 15px;">Github</a> <a href="/tags/Go/" style="font-size: 15px;">Go</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/Android/" style="font-size: 15px;">Android</a> <a href="/tags/Mac/" style="font-size: 15px;">Mac</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/Shadowsocks/" style="font-size: 15px;">Shadowsocks</a> <a href="/tags/科学上网/" style="font-size: 15px;">科学上网</a> <a href="/tags/Vim/" style="font-size: 15px;">Vim</a> <a href="/tags/插件/" style="font-size: 15px;">插件</a> <a href="/tags/读书笔记/" style="font-size: 15px;">读书笔记</a> <a href="/tags/读书/" style="font-size: 15px;">读书</a> <a href="/tags/记忆力/" style="font-size: 15px;">记忆力</a> <a href="/tags/Markdown/" style="font-size: 15px;">Markdown</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/shell/" style="font-size: 15px;">shell</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/i3/" style="font-size: 15px;">i3</a> <a href="/tags/Rofi/" style="font-size: 15px;">Rofi</a> <a href="/tags/ncmpcpp/" style="font-size: 15px;">ncmpcpp</a> <a href="/tags/Music/" style="font-size: 15px;">Music</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/11/29/2019一整年的总结与一些个人反思/">2019一整年的总结与一些个人反思</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/19/Docker容器造化钟神秀/">Docker容器造化钟神秀</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/17/Tmux的使用教程/">Tmux的使用教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/16/cnBlogs博客园主题样式美化/">cnBlogs博客园主题样式美化</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/13/PicGo-Github-CDN加速图床-免费的难道它不香吗？/">PicGo+Github+CDN加速图床,免费的难道它不香吗？</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/02/如何免费做一个属于自己稳定有效的图床/">如何免费做一个属于自己稳定有效的图床</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/02/关于自己每日计划是如何制定的/">关于自己每日计划是如何制定的</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/31/java多线程的4种实现方式/">java多线程的4种实现方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/31/2020跨年文案/">2020跨年文案</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/03/Go语言数据类型/">Go语言数据类型</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-comment-o"> 最近评论</i></div><script type="text/javascript" src="//itgoyo.disqus.com/recent_comments_widget.js?num_items=5&amp;hide_avatars=1&amp;avatar_size=32&amp;excerpt_length=20&amp;hide_mods=1"></script></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://github.com/itgoyo" title="Github" target="_blank">Github</a><ul></ul><a href="https://space.bilibili.com/12767066/#/" title="BiliBili" target="_blank">BiliBili</a><ul></ul><a href="https://www.zhihu.com/people/mkosto/activities" title="ZhiHu" target="_blank">ZhiHu</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><p align="center">
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+</p><div id="footer">Copyright © 2020 <a href="/." rel="nofollow">itgoyo'blog.</a> 作者Github:<a rel="nofollow" target="_blank" href="https://github.com/itgoyo"> itgoyo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/itgoyo"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.2.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.2.5/jquery.fancybox.min.css"><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+   search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = '//hm.baidu.com/hm.js?' + 'c16d3c10c9ea6c6fe749d9926d52b0d6';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+  })();
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html><div>
+<a href="https://github.com/itgoyo"><img class="nofancybox" ;="" style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+</div>

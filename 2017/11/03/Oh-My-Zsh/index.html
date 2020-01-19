@@ -1,0 +1,92 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.8.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>Oh-My-Zsh | itgoyo'blog</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/7.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({google_ad_client: "ca-pub-5803807445434654", enable_page_level_ads: true});</script></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Oh-My-Zsh</h1><a id="logo" href="/.">itgoyo'blog</a><p class="description">Talk is cheap,Show me the girl.</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 主页</i></a><a href="/archives/"><i class="fa fa-archive"> 文章</i></a><a href="/history"><i class="fa fa-calendar"> 历史</i></a><a href="/books"><i class="fa fa-book"> 书籍</i></a><a href="/movies"><i class="fa fa-film"> 电影</i></a><a href="/games"><i class="fa fa-gamepad"> 游戏</i></a><a href="https://itgoyo.github.io/gallery.html"><i class="fa fa-photo"> 相册</i></a><a href="https://itgoyo.github.io/resume"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> RSS</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">Oh-My-Zsh</h1><div class="post-meta">Nov 3, 2017<span> | </span><span class="category"><a href="/categories/编程相关/">编程相关</a></span><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> 阅读</span></span><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5803807445434654"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div><a class="disqus-comment-count" data-disqus-identifier="2017/11/03/Oh-My-Zsh/" href="/2017/11/03/Oh-My-Zsh/#disqus_thread"></a><a class="disqus-comment-count" href="/2017/11/03/Oh-My-Zsh/#vcomment"><span class="valine-comment-count" data-xid="/2017/11/03/Oh-My-Zsh/"></span><span>条评论</span></a><div class="post-content"><h2 id="oh-my-zsh"><a href="#oh-my-zsh" class="headerlink" title="oh my zsh"></a>oh my zsh</h2><ul>
+<li><p>curl or wget should be installed</p>
+</li>
+<li><p>git should be installed</p>
+</li>
+</ul>
+<h4 id="Basic-Installation"><a href="#Basic-Installation" class="headerlink" title="Basic Installation"></a>Basic Installation</h4><p>Oh My Zsh is installed by running one of the following commands in your terminal. You can install this via the command-line with either curl or wget.</p>
+<ul>
+<li>via curl</li>
+</ul>
+<p><code>sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</code></p>
+<ul>
+<li>via wget</li>
+</ul>
+<p><code>sh -c &quot;$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)&quot;1</code></p>
+<h4 id="Plugins"><a href="#Plugins" class="headerlink" title="Plugins"></a>Plugins</h4><p>Once you spot a plugin (or several) that you’d like to use with Oh My Zsh, you’ll need to enable them in the .zshrc file. You’ll find the zshrc file in your $HOME directory. Open it with your favorite text editor and you’ll see a spot to list all the plugins you want to load.</p>
+<p>For example, this line might begin to look like this:</p>
+<p><code>plugins=(git bundler osx rake ruby)</code></p>
+<h4 id="Themes"><a href="#Themes" class="headerlink" title="Themes"></a>Themes</h4><p>Robby’s theme is the default one. It’s not the fanciest one. It’s not the simplest one. It’s just the right one (for him).</p>
+<p>Once you find a theme that you want to use, you will need to edit the ~/.zshrc file. You’ll see an environment variable (all caps) in there that looks like:</p>
+<p><code>ZSH_THEME=&quot;robbyrussell&quot;</code></p>
+<p>To use a different theme, simply change the value to match the name of your desired theme. For example:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ZSH_THEME=&quot;agnoster&quot; # (this is one of the fancy ones)</span><br><span class="line"># you might need to install a special Powerline font on your console&apos;s host for this to work</span><br><span class="line"># see https://github.com/robbyrussell/oh-my-zsh/wiki/Themes#agnoster</span><br></pre></td></tr></table></figure>
+<h3 id="出现乱码解决方式"><a href="#出现乱码解决方式" class="headerlink" title="出现乱码解决方式"></a>出现乱码解决方式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">执行以下命令来安装缺失的字体：</span><br><span class="line">wget https://raw.githubusercontent.com/powerline/powerline/develop/font/10-powerline-symbols.conf</span><br><span class="line">wget https://raw.githubusercontent.com/powerline/powerline/develop/font/PowerlineSymbols.otf</span><br><span class="line">sudo mkdir /usr/share/fonts/OTF</span><br><span class="line">sudo cp 10-powerline-symbols.conf /usr/share/fonts/OTF/</span><br><span class="line">sudo mv 10-powerline-symbols.conf /etc/fonts/conf.d/</span><br><span class="line">sudo mv PowerlineSymbols.otf /usr/share/fonts/OTF/</span><br></pre></td></tr></table></figure>
+<p>Open up a new terminal window and your prompt should look something like this:<br><img src="https://cloud.githubusercontent.com/assets/2618447/6316862/70f58fb6-ba03-11e4-82c9-c083bf9a6574.png" alt=""></p>
+<p>In case you did not find a suitable theme for your needs, please have a look at the <a href="https://github.com/robbyrussell/oh-my-zsh/wiki/External-themes" target="_blank" rel="noopener">wiki</a> for more of them.</p>
+<p>If you’re feeling feisty, you can let the computer select one randomly for you each time you open a new terminal window.</p>
+<p><code>ZSH_THEME=&quot;random&quot; # (...please let it be pie... please be some pie..)</code></p>
+<hr>
+<div align="center"><br><br>        发现更多更好玩的，欢迎关注我的微信公众号:<span style="color:red;"> FullStacker </span><br><br>        <img src="/img/fullstacker.jpg" height="400px" width="400px"><br>    </div>
+
+</div><iframe src="/donate/?AliPayQR=/img/alipay.jpg&amp;WeChatQR=/img/wechat.jpg&amp;GitHub=null&amp;BTCQR=null&amp;BTCKEY=null&amp;PayPal=null" style="overflow-x:hidden; overflow-y:hidden; border:0xp none #fff; min-height:300px; width:100%;" frameborder="0" scrolling="no"></iframe><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a class="article-share-link" data-url="https://itgoyo.github.io/2017/11/03/Oh-My-Zsh/" data-id="ck5kuvllq0016apxwjt8qjh1y" data-qrcode="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACOElEQVR42u3a22rDQAxF0fz/T7vQp0I6030kp2DNnqcQGtsrBUW31wuf6/us3nl//fOsrvb+N/tP3XBkyJDxWMa1PSvGnrRH7h96/6UsqTJkyDiAwR+O3IY/ELk++QGQIUOGjFVY5LfkiaAMGTJk9APuXRVlmkrKkCFDRpq6kcKVsGsJpQwZMk5jpIOB/3z9wfmGDBkyHsK4wpO25NKBQe3IkCFjNoMsUpCViw4+HXMuw7EMGTKGMsgKBRk09pfD+KgA/R9kyJAxiJHe8q6RJ2/DEbwMGTJmM3iq1wmR6ffKy10ZMmScwOApHblljX3DmoUMGTJGM0hRWitB0/ZZrd22nG/IkCFjEKO/eJGCCT4dc8qQIeM0BmnK11pvccbauKYMGTLmMXjDK03s0nc6SxgyZMiYykhL0NowEkX6MA0t9gtlyJDxcEaartWSyHTwgFJDGTJkjGakjftaeO2PH+L6W4YMGYMYtfEk/2za6E8HAOh3Q4YMGQ9nkJBaGzf2G3lpaS1DhoypDJ728fWsdM2LN+b+yG1lyJAxmsHLTt4mS0cLrUJahgwZoxnBmLA9wrz3szJkyDiHcYWHDxd5+pguc/xyTRkyZIxm1Naz+osR6dgyHU7IkCFjHoOXr512P08Ha4FehgwZJzBqQZM/RBp2eSCWIUOGjDRdSx8xDfdIKUOGDBl4nSJtw6UlcTE1lCFDxmMZfAGCJIWdmWptYCBDhozZjLSAJDerJZHpV9mab8iQIeMZjC9I+ImHiMMlVQAAAABJRU5ErkJggg==">分享</a><div class="tags"><a href="/tags/Program/">Program</a></div><div class="post-nav"><a class="pre" href="/2017/11/08/Mac系统好用的软件推荐/">Mac系统好用的软件推荐</a><a class="next" href="/2017/11/03/Vim的安装与使用/">Vim的安装与使用</a></div><div id="disqus_thread"><div class="btn_click_load"><button class="disqus_click_btn">阅读评论 「请确保 disqus.com 可以正常加载」</button></div><script>var disqus_shortname = 'itgoyo';
+var disqus_identifier = '2017/11/03/Oh-My-Zsh/';
+var disqus_title = 'Oh-My-Zsh';
+var disqus_url = 'https://itgoyo.github.io/2017/11/03/Oh-My-Zsh/';
+$('.btn_click_load').click(function() {
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  $('.btn_click_load').css('display','none');
+});
+$.ajax({
+  url: 'https://disqus.com/next/config.json',
+  timeout: 3000,
+  type: 'GET',
+  success: (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    $('.btn_click_load').css('display','none');
+  })(),
+  error: function() {
+    $('.btn_click_load').css('display','block');
+  }
+});</script><script id="dsq-count-scr" src="//itgoyo.disqus.com/count.js" async></script></div><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'true' == true ? true : false;
+var verify = 'false' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'HzQ14MvDJNcJ4Y73LGzWkuKD-gzGzoHsz',
+  appKey:'gPggWGa1wwwhXbzuhnSQyQDx',
+  placeholder:'Just so so',
+  avatar:'mm',
+  guest_info:guest_info,
+  pageSize:'10'
+})</script></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Go/">Go</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mac/">Mac</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vim/">Vim</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/">开发工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/开源项目/">开源项目</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活随笔/">生活随笔</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程相关/">编程相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/生活随笔/" style="font-size: 15px;">生活随笔</a> <a href="/tags/Program/" style="font-size: 15px;">Program</a> <a href="/tags/Github/" style="font-size: 15px;">Github</a> <a href="/tags/Go/" style="font-size: 15px;">Go</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/Android/" style="font-size: 15px;">Android</a> <a href="/tags/Mac/" style="font-size: 15px;">Mac</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/Shadowsocks/" style="font-size: 15px;">Shadowsocks</a> <a href="/tags/科学上网/" style="font-size: 15px;">科学上网</a> <a href="/tags/Vim/" style="font-size: 15px;">Vim</a> <a href="/tags/插件/" style="font-size: 15px;">插件</a> <a href="/tags/读书笔记/" style="font-size: 15px;">读书笔记</a> <a href="/tags/读书/" style="font-size: 15px;">读书</a> <a href="/tags/记忆力/" style="font-size: 15px;">记忆力</a> <a href="/tags/Markdown/" style="font-size: 15px;">Markdown</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/shell/" style="font-size: 15px;">shell</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/i3/" style="font-size: 15px;">i3</a> <a href="/tags/Rofi/" style="font-size: 15px;">Rofi</a> <a href="/tags/ncmpcpp/" style="font-size: 15px;">ncmpcpp</a> <a href="/tags/Music/" style="font-size: 15px;">Music</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/11/29/2019一整年的总结与一些个人反思/">2019一整年的总结与一些个人反思</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/19/Docker容器造化钟神秀/">Docker容器造化钟神秀</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/17/Tmux的使用教程/">Tmux的使用教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/16/cnBlogs博客园主题样式美化/">cnBlogs博客园主题样式美化</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/13/PicGo-Github-CDN加速图床-免费的难道它不香吗？/">PicGo+Github+CDN加速图床,免费的难道它不香吗？</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/02/如何免费做一个属于自己稳定有效的图床/">如何免费做一个属于自己稳定有效的图床</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/02/关于自己每日计划是如何制定的/">关于自己每日计划是如何制定的</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/31/java多线程的4种实现方式/">java多线程的4种实现方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/31/2020跨年文案/">2020跨年文案</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/03/Go语言数据类型/">Go语言数据类型</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-comment-o"> 最近评论</i></div><script type="text/javascript" src="//itgoyo.disqus.com/recent_comments_widget.js?num_items=5&amp;hide_avatars=1&amp;avatar_size=32&amp;excerpt_length=20&amp;hide_mods=1"></script></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://github.com/itgoyo" title="Github" target="_blank">Github</a><ul></ul><a href="https://space.bilibili.com/12767066/#/" title="BiliBili" target="_blank">BiliBili</a><ul></ul><a href="https://www.zhihu.com/people/mkosto/activities" title="ZhiHu" target="_blank">ZhiHu</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><p align="center">
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+</p><div id="footer">Copyright © 2020 <a href="/." rel="nofollow">itgoyo'blog.</a> 作者Github:<a rel="nofollow" target="_blank" href="https://github.com/itgoyo"> itgoyo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/itgoyo"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.2.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.2.5/jquery.fancybox.min.css"><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+   search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = '//hm.baidu.com/hm.js?' + 'c16d3c10c9ea6c6fe749d9926d52b0d6';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+  })();
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html><div>
+<a href="https://github.com/itgoyo"><img class="nofancybox" ;="" style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+</div>

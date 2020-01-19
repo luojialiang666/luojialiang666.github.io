@@ -1,0 +1,320 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.8.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>Hexo使用Valine评论系统并且使用邮件通知有新评论 | itgoyo'blog</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/7.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({google_ad_client: "ca-pub-5803807445434654", enable_page_level_ads: true});</script></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Hexo使用Valine评论系统并且使用邮件通知有新评论</h1><a id="logo" href="/.">itgoyo'blog</a><p class="description">Talk is cheap,Show me the girl.</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 主页</i></a><a href="/archives/"><i class="fa fa-archive"> 文章</i></a><a href="/history"><i class="fa fa-calendar"> 历史</i></a><a href="/books"><i class="fa fa-book"> 书籍</i></a><a href="/movies"><i class="fa fa-film"> 电影</i></a><a href="/games"><i class="fa fa-gamepad"> 游戏</i></a><a href="https://itgoyo.github.io/gallery.html"><i class="fa fa-photo"> 相册</i></a><a href="https://itgoyo.github.io/resume"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> RSS</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">Hexo使用Valine评论系统并且使用邮件通知有新评论</h1><div class="post-meta">Jul 12, 2019<span> | </span><span class="category"><a href="/categories/编程相关/">编程相关</a></span><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> 阅读</span></span><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5803807445434654"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div><a class="disqus-comment-count" data-disqus-identifier="2019/07/12/Hexo使用Valine评论系统并且使用邮件通知有新评论/" href="/2019/07/12/Hexo使用Valine评论系统并且使用邮件通知有新评论/#disqus_thread"></a><a class="disqus-comment-count" href="/2019/07/12/Hexo使用Valine评论系统并且使用邮件通知有新评论/#vcomment"><span class="valine-comment-count" data-xid="/2019/07/12/Hexo使用Valine评论系统并且使用邮件通知有新评论/"></span><span>条评论</span></a><div class="clear"><div class="toc-article" id="toc"><div class="toc-title">文章目录</div><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#坑一"><span class="toc-number">1.</span> <span class="toc-text">坑一</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#坑二"><span class="toc-number">2.</span> <span class="toc-text">坑二</span></a></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#以下是原作者的教程打开可以参考一下"><span class="toc-number"></span> <span class="toc-text">以下是原作者的教程打开可以参考一下</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#云引擎”一键”部署"><span class="toc-number">1.</span> <span class="toc-text">云引擎”一键”部署</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#邮件通知模板"><span class="toc-number">2.</span> <span class="toc-text">邮件通知模板</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#垃圾评论检测"><span class="toc-number">3.</span> <span class="toc-text">垃圾评论检测</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#防止云引擎休眠"><span class="toc-number">4.</span> <span class="toc-text">防止云引擎休眠</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Troubleshooting"><span class="toc-number">5.</span> <span class="toc-text">Troubleshooting</span></a></li></ol></li></div></div><div class="post-content"><p>今天在用 hexo 的时候发现个别文章有别人使用<code>Valine</code>的评论，但是当我发现的时候时间已经过去了几个月了，根本就不知道有消息提醒这回事，首先Value 没看到有一个管理员系统，所以没法查看总的未提醒数。后面在 Value 原作者 Github 上面发现了他有通过<code>leancloud</code>然后使用邮件来提醒，通过一个下午的实验终于成功了，我把捣弄过程中我遇到的坑给大家说一下。</p>
+<h3 id="坑一"><a href="#坑一" class="headerlink" title="坑一"></a>坑一</h3><p>代码仓库地址是填写<a href="https://github.com/DesertsP/Valine-Admin.git" target="_blank" rel="noopener">https://github.com/DesertsP/Valine-Admin.git</a>不是填写你自己 Github 上面的仓库，统一都是使用这个地址，之前我不知道导致填写定时任务的时候一直出错。</p>
+<h3 id="坑二"><a href="#坑二" class="headerlink" title="坑二"></a>坑二</h3><p>在填写接收邮箱密码的时候写的不是你的邮箱密码，而是在邮箱设置里面的POP3/IMAP生成的<code>授权码</code>，这个是随机生成的。之前一直调不通就是因为这个原因。</p>
+<hr>
+<h1 id="以下是原作者的教程打开可以参考一下"><a href="#以下是原作者的教程打开可以参考一下" class="headerlink" title="以下是原作者的教程打开可以参考一下"></a>以下是原作者的教程打开可以参考一下</h1><blockquote>
+<p>aline Admin 是 <a href="https://panjunwen.com/diy-a-comment-system/" target="_blank" rel="noopener">Valine 评论系统</a>的扩展和增强，主要实现评论邮件通知、评论管理、垃圾评论过滤等功能。支持完全自定义的邮件通知模板，基于Akismet API实现准确的垃圾评论过滤。<br>近期更改了Github用户名请留意，仓库链接更新为<a href="https://github.com/DesertsP/Valine-Admin.git" target="_blank" rel="noopener">https://github.com/DesertsP/Valine-Admin.git</a></p>
+</blockquote>
+<h3 id="云引擎”一键”部署"><a href="#云引擎”一键”部署" class="headerlink" title="云引擎”一键”部署"></a>云引擎”一键”部署</h3><ol>
+<li>在<a href="https://leancloud.cn/dashboard/#/apps" target="_blank" rel="noopener">Leancloud</a>云引擎设置界面，填写代码库并保存：<a href="https://github.com/DesertsP/Valine-Admin.git" target="_blank" rel="noopener">https://github.com/DesertsP/Valine-Admin.git</a></li>
+</ol>
+<p><img src="https://cloud.panjunwen.com/2018/09/ping-mu-kuai-zhao-2018-09-15-xia-wu-12-56-04.png" alt="设置仓库"></p>
+<ol>
+<li>在设置页面，设置环境变量以及 Web 二级域名。</li>
+</ol>
+<p><img src="https://cloud.panjunwen.com/2018/09/ping-mu-kuai-zhao-2018-09-15-xia-wu-3-40-48.png" alt="环境变量"></p>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>示例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SITE_NAME</td>
+<td>Deserts</td>
+<td>[必填]博客名称</td>
+</tr>
+<tr>
+<td>SITE_URL</td>
+<td><a href="https://panjunwen.com/" target="_blank" rel="noopener">https://panjunwen.com</a></td>
+<td>[必填]首页地址</td>
+</tr>
+<tr>
+<td><strong>SMTP_SERVICE</strong></td>
+<td>QQ</td>
+<td>[新版支持]邮件服务提供商，支持 QQ、163、126、Gmail 以及 <a href="https://nodemailer.com/smtp/well-known/#supported-services" target="_blank" rel="noopener">更多</a></td>
+</tr>
+<tr>
+<td>SMTP_USER</td>
+<td><a href="mailto:xxxxxx@qq.com" target="_blank" rel="noopener">xxxxxx@qq.com</a></td>
+<td>[必填]SMTP登录用户</td>
+</tr>
+<tr>
+<td>SMTP_PASS</td>
+<td>ccxxxxxxxxch</td>
+<td>[必填]SMTP登录密码（QQ邮箱需要获取独立密码）</td>
+</tr>
+<tr>
+<td>SENDER_NAME</td>
+<td>Deserts</td>
+<td>[必填]发件人</td>
+</tr>
+<tr>
+<td>SENDER_EMAIL</td>
+<td><a href="mailto:xxxxxx@qq.com" target="_blank" rel="noopener">xxxxxx@qq.com</a></td>
+<td>[必填]发件邮箱</td>
+</tr>
+<tr>
+<td>ADMIN_URL</td>
+<td><a href="https://xxx.leanapp.cn/" target="_blank" rel="noopener">https://xxx.leanapp.cn/</a></td>
+<td>[建议]Web主机二级域名，用于自动唤醒</td>
+</tr>
+<tr>
+<td>BLOGGER_EMAIL</td>
+<td><a href="mailto:xxxxx@gmail.com" target="_blank" rel="noopener">xxxxx@gmail.com</a></td>
+<td>[可选]博主通知收件地址，默认使用SENDER_EMAIL</td>
+</tr>
+<tr>
+<td>AKISMET_KEY</td>
+<td>xxxxxxxxxxxx</td>
+<td>[可选]Akismet Key 用于垃圾评论检测，设为MANUAL_REVIEW开启人工审核，留空不使用反垃圾</td>
+</tr>
+</tbody>
+</table>
+<p><strong>以上必填参数请务必正确设置。</strong></p>
+<p>二级域名用于评论后台管理，如<a href="https://deserts.leanapp.cn/" target="_blank" rel="noopener">https://deserts.leanapp.cn</a> 。</p>
+<p><img src="https://cloud.panjunwen.com/2018/09/ping-mu-kuai-zhao-2018-09-15-xia-wu-1-06-41.png" alt="二级域名"></p>
+<ol>
+<li>切换到部署标签页，分支使用master，点击部署即可</li>
+</ol>
+<p><img src="https://cloud.panjunwen.com/2018/09/ping-mu-kuai-zhao-2018-09-15-xia-wu-12-56-50.png" alt="一键部署"></p>
+<p>第一次部署需要花点时间。</p>
+<p><img src="https://cloud.panjunwen.com/2018/09/ping-mu-kuai-zhao-2018-09-15-xia-wu-1-00-45.png" alt="部署过程"></p>
+<ol>
+<li><p>评论管理。访问设置的二级域名<code>https://二级域名.leanapp.cn/sign-up</code>，注册管理员登录信息，如：<a href="https://deserts.leanapp.cn/sign-up" target="_blank" rel="noopener">https://deserts.leanapp.cn/sign-up</a><br><img src="https://cloud.panjunwen.com/2018/10/ping-mu-kuai-zhao-2018-10-22-xia-wu-9-35-51.png" alt="管理员注册"></p>
+<blockquote>
+<p>注：使用原版Valine如果遇到注册页面不显示直接跳转至登录页的情况，请手动删除_User表中的全部数据。</p>
+</blockquote>
+</li>
+</ol>
+<p>此后，可以通过<code>https://二级域名.leanapp.cn/</code>管理评论。</p>
+<ol>
+<li>定时任务设置</li>
+</ol>
+<p>目前实现了两种云函数定时任务：(1)自动唤醒，定时访问Web APP二级域名防止云引擎休眠；(2)每天定时检查24小时内漏发的邮件通知。</p>
+<p>进入云引擎-定时任务中，创建定时器，创建两个定时任务。</p>
+<p>选择self-wake云函数，Cron表达式为<code>0 0/30 7-23 * * ?</code>，表示每天早6点到晚23点每隔30分钟访问云引擎，<code>ADMIN_URL</code>环境变量务必设置正确：</p>
+<p><img src="https://cloud.panjunwen.com/2018/09/ping-mu-kuai-zhao-2018-09-18-xia-wu-2-57-43.png" alt="唤醒云引擎"></p>
+<p>选择resend-mails云函数，Cron表达式为<code>0 0 8 * * ?</code>，表示每天早8点检查过去24小时内漏发的通知邮件并补发：</p>
+<p><img src="https://cloud.panjunwen.com/2018/09/ping-mu-kuai-zhao-2018-09-18-xia-wu-2-57-53.png" alt="通知检查"></p>
+<p><strong>添加定时器后记得点击启动方可生效。</strong></p>
+<p><strong>至此，Valine Admin 已经可以正常工作，更多以下是可选的进阶配置。</strong></p>
+<h3 id="邮件通知模板"><a href="#邮件通知模板" class="headerlink" title="邮件通知模板"></a>邮件通知模板</h3><p>邮件通知模板在云引擎环境变量中设定，可自定义通知邮件标题及内容模板。</p>
+<table>
+<thead>
+<tr>
+<th>环境变量</th>
+<th>示例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MAIL_SUBJECT</td>
+<td>${PARENT_NICK}，您在${SITE_NAME}上的评论收到了回复</td>
+<td>[可选]@通知邮件主题（标题）模板</td>
+</tr>
+<tr>
+<td>MAIL_TEMPLATE</td>
+<td>见下文</td>
+<td>[可选]@通知邮件内容模板</td>
+</tr>
+<tr>
+<td>MAIL_SUBJECT_ADMIN</td>
+<td>${SITE_NAME}上有新评论了</td>
+<td>[可选]博主邮件通知主题模板</td>
+</tr>
+<tr>
+<td>MAIL_TEMPLATE_ADMIN</td>
+<td>见下文</td>
+<td>[可选]博主邮件通知内容模板</td>
+</tr>
+</tbody>
+</table>
+<p>邮件通知包含两种，分别是被@通知和博主通知，这两种模板都可以完全自定义。默认使用经典的蓝色风格模板（样式来源未知）。</p>
+<p>默认被@通知邮件内容模板如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"border-top:2px solid #12ADDB;box-shadow:0 1px 3px #AAAAAA;line-height:180%;padding:0 15px 12px;margin:50px auto;font-size:12px;"</span>&gt;</span><span class="tag">&lt;<span class="name">h2</span> <span class="attr">style</span>=<span class="string">"border-bottom:1px solid #DDD;font-size:14px;font-weight:normal;padding:13px 0 10px 8px;"</span>&gt;</span>您在<span class="tag">&lt;<span class="name">a</span> <span class="attr">style</span>=<span class="string">"text-decoration:none;color: #12ADDB;"</span> <span class="attr">href</span>=<span class="string">"$&#123;SITE_URL&#125;"</span> <span class="attr">target</span>=<span class="string">"_blank"</span>&gt;</span>            $&#123;SITE_NAME&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span>上的评论有了新的回复<span class="tag">&lt;/<span class="name">h2</span>&gt;</span> $&#123;PARENT_NICK&#125; 同学，您曾发表评论：<span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"padding:0 12px 0 12px;margin-top:18px"</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"background-color: #f5f5f5;padding: 10px 15px;margin:18px 0;word-wrap:break-word;"</span>&gt;</span>            $&#123;PARENT_COMMENT&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">strong</span>&gt;</span>$&#123;NICK&#125;<span class="tag">&lt;/<span class="name">strong</span>&gt;</span>回复说：<span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"background-color: #f5f5f5;padding: 10px 15px;margin:18px 0;word-wrap:break-word;"</span>&gt;</span> $&#123;COMMENT&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>您可以点击<span class="tag">&lt;<span class="name">a</span> <span class="attr">style</span>=<span class="string">"text-decoration:none; color:#12addb"</span> <span class="attr">href</span>=<span class="string">"$&#123;POST_URL&#125;"</span> <span class="attr">target</span>=<span class="string">"_blank"</span>&gt;</span>查看回复的完整內容<span class="tag">&lt;/<span class="name">a</span>&gt;</span>，欢迎再次光临<span class="tag">&lt;<span class="name">a</span> <span class="attr">style</span>=<span class="string">"text-decoration:none; color:#12addb"</span> <span class="attr">href</span>=<span class="string">"$&#123;SITE_URL&#125;"</span> <span class="attr">target</span>=<span class="string">"_blank"</span>&gt;</span>$&#123;SITE_NAME&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span>。<span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>效果如下图：</p>
+<p><img src="https://cloud.panjunwen.com/2018/09/wei-ming-ming.png" alt="mail-blue-template"></p>
+<p>@通知模板中的可用变量如下（注，这是邮件模板变量，是指嵌入到HTML邮件模板中的变量，请勿与云引擎环境变量混淆）：</p>
+<table>
+<thead>
+<tr>
+<th>模板变量</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SITE_NAME</td>
+<td>博客名称</td>
+</tr>
+<tr>
+<td>SITE_URL</td>
+<td>博客首页地址</td>
+</tr>
+<tr>
+<td>POST_URL</td>
+<td>文章地址（完整路径）</td>
+</tr>
+<tr>
+<td>PARENT_NICK</td>
+<td>收件人昵称（被@者，父级评论人）</td>
+</tr>
+<tr>
+<td>PARENT_COMMENT</td>
+<td>父级评论内容</td>
+</tr>
+<tr>
+<td>NICK</td>
+<td>新评论者昵称</td>
+</tr>
+<tr>
+<td>COMMENT</td>
+<td>新评论内容</td>
+</tr>
+</tbody>
+</table>
+<p>默认博主通知邮件内容模板如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"border-top:2px solid #12ADDB;box-shadow:0 1px 3px #AAAAAA;line-height:180%;padding:0 15px 12px;margin:50px auto;font-size:12px;"</span>&gt;</span><span class="tag">&lt;<span class="name">h2</span> <span class="attr">style</span>=<span class="string">"border-bottom:1px solid #DDD;font-size:14px;font-weight:normal;padding:13px 0 10px 8px;"</span>&gt;</span>您在<span class="tag">&lt;<span class="name">a</span> <span class="attr">style</span>=<span class="string">"text-decoration:none;color: #12ADDB;"</span> <span class="attr">href</span>=<span class="string">"$&#123;SITE_URL&#125;"</span> <span class="attr">target</span>=<span class="string">"_blank"</span>&gt;</span>$&#123;SITE_NAME&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span>上的文章有了新的评论<span class="tag">&lt;/<span class="name">h2</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">strong</span>&gt;</span>$&#123;NICK&#125;<span class="tag">&lt;/<span class="name">strong</span>&gt;</span>回复说：<span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"background-color: #f5f5f5;padding: 10px 15px;margin:18px 0;word-wrap:break-word;"</span>&gt;</span> $&#123;COMMENT&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>您可以点击<span class="tag">&lt;<span class="name">a</span> <span class="attr">style</span>=<span class="string">"text-decoration:none; color:#12addb"</span> <span class="attr">href</span>=<span class="string">"$&#123;POST_URL&#125;"</span> <span class="attr">target</span>=<span class="string">"_blank"</span>&gt;</span>查看回复的完整內容<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>博主通知邮件模板中的可用变量与@通知中的基本一致，<strong><code>PARENT_NICK</code> 和 <code>PARENT_COMMENT</code> 变量不再可用。</strong></p>
+<p>这里还提供一个彩虹风格的@通知邮件模板代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"border-radius: 10px 10px 10px 10px;font-size:13px;    color: #555555;width: 666px;font-family:'Century Gothic','Trebuchet MS','Hiragino Sans GB',微软雅黑,'Microsoft Yahei',Tahoma,Helvetica,Arial,'SimSun',sans-serif;margin:50px auto;border:1px solid #eee;max-width:100%;background: #ffffff repeating-linear-gradient(-45deg,#fff,#fff 1.125rem,transparent 1.125rem,transparent 2.25rem);box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);"</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"width:100%;background:#49BDAD;color:#ffffff;border-radius: 10px 10px 0 0;background-image: -moz-linear-gradient(0deg, rgb(67, 198, 184), rgb(255, 209, 244));background-image: -webkit-linear-gradient(0deg, rgb(67, 198, 184), rgb(255, 209, 244));height: 66px;"</span>&gt;</span><span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">"font-size:15px;word-break:break-all;padding: 23px 32px;margin:0;background-color: hsla(0,0%,100%,.4);border-radius: 10px 10px 0 0;"</span>&gt;</span>您在<span class="tag">&lt;<span class="name">a</span> <span class="attr">style</span>=<span class="string">"text-decoration:none;color: #ffffff;"</span> <span class="attr">href</span>=<span class="string">"$&#123;SITE_URL&#125;"</span>&gt;</span> $&#123;SITE_NAME&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span>上的留言有新回复啦！<span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"margin:40px auto;width:90%"</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>$&#123;PARENT_NICK&#125; 同学，您曾在文章上发表评论：<span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"background: #fafafa repeating-linear-gradient(-45deg,#fff,#fff 1.125rem,transparent 1.125rem,transparent 2.25rem);box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);margin:20px 0px;padding:15px;border-radius:5px;font-size:14px;color:#555555;"</span>&gt;</span>$&#123;PARENT_COMMENT&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>$&#123;NICK&#125; 给您的回复如下：<span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"background: #fafafa repeating-linear-gradient(-45deg,#fff,#fff 1.125rem,transparent 1.125rem,transparent 2.25rem);box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);margin:20px 0px;padding:15px;border-radius:5px;font-size:14px;color:#555555;"</span>&gt;</span>$&#123;COMMENT&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>您可以点击<span class="tag">&lt;<span class="name">a</span> <span class="attr">style</span>=<span class="string">"text-decoration:none; color:#12addb"</span> <span class="attr">href</span>=<span class="string">"$&#123;POST_URL&#125;#comments"</span>&gt;</span>查看回复的完整內容<span class="tag">&lt;/<span class="name">a</span>&gt;</span>，欢迎再次光临<span class="tag">&lt;<span class="name">a</span> <span class="attr">style</span>=<span class="string">"text-decoration:none; color:#12addb"</span>                <span class="attr">href</span>=<span class="string">"$&#123;SITE_URL&#125;"</span>&gt;</span> $&#123;SITE_NAME&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span>。<span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined">a:link&#123;text-decoration:none&#125;a:visited&#123;text-decoration:none&#125;a:hover&#123;text-decoration:none&#125;a:active&#123;text-decoration:none&#125;</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>效果如图：</p>
+<p><img src="https://cloud.panjunwen.com/2018/09/ping-mu-kuai-zhao-2018-09-15-xia-wu-5-17-21.png" alt="彩虹模板"></p>
+<h3 id="垃圾评论检测"><a href="#垃圾评论检测" class="headerlink" title="垃圾评论检测"></a>垃圾评论检测</h3><blockquote>
+<p>Akismet (Automattic Kismet)是应用广泛的一个垃圾留言过滤系统，其作者是大名鼎鼎的WordPress 创始人 Matt Mullenweg，Akismet也是WordPress默认安装的插件，其使用非常广泛，设计目标便是帮助博客网站来过滤留言Spam。有了Akismet之后，基本上不用担心垃圾留言的烦恼了。<br>启用Akismet后，当博客再收到留言会自动将其提交到Akismet并与Akismet上的黑名单进行比对，如果名列该黑名单中，则该条留言会被标记为垃圾评论且不会发布。</p>
+</blockquote>
+<p>如果还没有Akismet Key，你可以去 <a href="https://akismet.com/development/" target="_blank" rel="noopener">AKISMET FOR DEVELOPERS 免费申请一个</a>；<br><strong>当AKISMET_KEY设为MANUAL_REVIEW时，开启人工审核模式；</strong><br>如果你不需要反垃圾评论，Akismet Key 环境变量可以忽略。</p>
+<p><strong>为了实现较为精准的垃圾评论识别，采集的判据除了评论内容、邮件地址和网站地址外，还包括评论者的IP地址、浏览器信息等，但仅在云引擎后台使用这些数据，确保隐私和安全。</strong></p>
+<p><strong>如果使用了本站最新的Valine和Valine Admin，并设置了Akismet Key，可以有效地拦截垃圾评论。被标为垃圾的评论可以在管理页面取消标注。</strong></p>
+<table>
+<thead>
+<tr>
+<th>环境变量</th>
+<th>示例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AKISMET_KEY</td>
+<td>xxxxxxxxxxxx</td>
+<td>[可选]Akismet Key 用于垃圾评论检测</td>
+</tr>
+</tbody>
+</table>
+<h3 id="防止云引擎休眠"><a href="#防止云引擎休眠" class="headerlink" title="防止云引擎休眠"></a>防止云引擎休眠</h3><p>关于自动休眠的官方说法：<a href="https://leancloud.cn/docs/leanengine_plan.html#hash633315134" target="_blank" rel="noopener">点击查看</a></p>
+<p>目前最新版的 Valine Admin 已经可以实现自唤醒，即在 LeanCloud 云引擎中定时请求 Web 应用地址防止休眠。对于夜间休眠期漏发的邮件通知，自动在次日早上补发。<strong>务必确保配置中设置了ADMIN_URL环境变量，并在第5步添加了两个云函数定时任务。</strong></p>
+<h3 id="Troubleshooting"><a href="#Troubleshooting" class="headerlink" title="Troubleshooting"></a>Troubleshooting</h3><ul>
+<li><p>部署失败，请在评论中附图，或去Github发起Issue</p>
+</li>
+<li><p>邮件发送失败，确保环境变量都没问题后，重启云引擎</p>
+<p><img src="https://cloud.panjunwen.com/2018/09/ping-mu-kuai-zhao-2018-09-15-xia-wu-5-22-56.png" alt="重启云引擎"></p>
+</li>
+<li><p>博主通知模板中不要出现<code>PARENT*</code>相关参数（请勿混用模板）</p>
+</li>
+<li><p>点击邮件中的链接跳转至相应评论，这一细节实现需要一点额外的代码：</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">window</span>.location.hash)&#123;</span><br><span class="line">        <span class="keyword">var</span> checkExist = setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">           <span class="keyword">if</span> ($(<span class="built_in">window</span>.location.hash).length) &#123;</span><br><span class="line">              $(<span class="string">'html, body'</span>).animate(&#123;<span class="attr">scrollTop</span>: $(<span class="built_in">window</span>.location.hash).offset().top<span class="number">-90</span>&#125;, <span class="number">1000</span>);</span><br><span class="line">              clearInterval(checkExist);</span><br><span class="line">           &#125;</span><br><span class="line">        &#125;, <span class="number">100</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>自定义邮件服务器地址和端口信息，删除SMTP_SERVICE环境变量，新增以下变量：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>示例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SMTP_HOST</td>
+<td>smtp.qq.com</td>
+<td>[可选]SMTP_SERVICE留空时，自定义SMTP服务器地址</td>
+</tr>
+<tr>
+<td>SMTP_PORT</td>
+<td>465</td>
+<td>[可选]SMTP_SERVICE留空时，自定义SMTP端口</td>
+</tr>
+<tr>
+<td>SMTP_SECURE</td>
+<td>true</td>
+<td>[可选]SMTP_SERVICE留空时填写</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>这是我的环境变量配置，绿色框中是邮箱服务相关配置，红色为邮件通知模板。</li>
+</ul>
+<p><img src="https://cloud.panjunwen.com/2018/11/ping-mu-kuai-zhao-2018-11-13-xia-wu-9-30-28.png" alt="ping-mu-kuai-zhao-2018-11-13-xia-wu-9-30-28"></p>
+<hr>
+<div align="center"><br><br>        发现更多更好玩的，欢迎关注我的微信公众号:<span style="color:red;"> FullStacker </span><br><br>        <img src="/img/fullstacker.jpg" height="400px" width="400px"><br>    </div>
+
+</div><iframe src="/donate/?AliPayQR=/img/alipay.jpg&amp;WeChatQR=/img/wechat.jpg&amp;GitHub=null&amp;BTCQR=null&amp;BTCKEY=null&amp;PayPal=null" style="overflow-x:hidden; overflow-y:hidden; border:0xp none #fff; min-height:300px; width:100%;" frameborder="0" scrolling="no"></iframe><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a class="article-share-link" data-url="https://itgoyo.github.io/2019/07/12/Hexo使用Valine评论系统并且使用邮件通知有新评论/" data-id="ck5kuvllg000kapxwu1b4fv75" data-qrcode="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADLElEQVR42u3aQXLjMAwEwPz/097rXmzPEHKVBbdOqZQisakDAgz//uLr8d/1+p7kN6+f9uye5DcXX9jY2Ng3YT9eXq/vybfpbFPa5yRPwMbGxt7Kfl2QXi8xuT9Z1llxyt+LjY2NjZ38nG9QC0uegI2NjY09L2D5iKdtZpKNxsbGxv5ldj7KOStICaMtovnwCxsbG3s3uy023/zzR/JtbGxs7C9mP8orj2mvipDbwhkpsLGxsRex8wKQjJDaEU8+tJocHnraCGFjY2MvYieNRx7inrU3OWnykep+CxsbG/vr2e0o/xN3tl8mDyHe5CHY2NjYi9h5wcgbj3lI3AbJxUEibGxs7HXsJDptB0CTozmTMVbUrmBjY2MvYrfnWM4G920pSmDtOOzpdmBjY2OvYOex6yRqTQrhhF0XM2xsbOyl7PyQ5aSlaY/s5B+pKJbY2NjY69hnjzgbHrVRxCSceNN7YWNjY9+cfQa7alg/CW7PNhobGxt7KzuPaa+KePN35duaB8PY2NjY+9h5+clj2qti47Mi+iacwMbGxl7EboPbthTlf5UfAIpI+WgJGxsb++bs9p/7/FDOZDg1GSdF78XGxsZexJ4sIm88JqUuKWZ5M/N0C7CxsbFvy85f0x7oyYOHyaD/sExiY2NjL2Int7aB7mSsPw+Ji+djY2Njr2Dn/+JPxv15+1H0TPH2Pf3O2NjY2IvY7SKSkX3eqJyNnNpGqMiEsbGxsW/Ozhfalp826G2PYOarwsbGxt7Kzv/1zw/uJCOqs1M0ZxuBjY2NvY/dLvfa0jJ5Tj4U+5t/JWxsbOyvZ+cHdPK2YTL6n3/D6H5sbGzsdezJMKgNd/P35gW1/ZDY2NjY+9hnRWXeuuTg+WAr2htsbGzsW7Ef5ZVsU1tgRmP9spXCxsbG3sfOr/ZIZT6imo+H5seGsLGxse/Obhd91RLbQpV/gMMODBsbG/vm7JaRtA1tY/PpodLTVAQbGxv7x9j5UGkS97YFqW51sLGxsX+YnYz42/J2Fi2M7sfGxsZex27D3YR3bWyQl8yiFcHGxsZewZ4PaOab0gYPyRPO3oWNjY19K/Y/0+krJj8n81AAAAAASUVORK5CYII=">分享</a><div class="tags"><a href="/tags/Program/">Program</a></div><div class="post-nav"><a class="pre" href="/2019/07/15/记hexo样式变化的奇怪错误/">记hexo样式变化的奇怪错误</a><a class="next" href="/2019/07/12/Vim编辑器insert切换回normal延迟卡顿的问题/">Vim编辑器insert切换回normal延迟卡顿的问题</a></div><div id="disqus_thread"><div class="btn_click_load"><button class="disqus_click_btn">阅读评论 「请确保 disqus.com 可以正常加载」</button></div><script>var disqus_shortname = 'itgoyo';
+var disqus_identifier = '2019/07/12/Hexo使用Valine评论系统并且使用邮件通知有新评论/';
+var disqus_title = 'Hexo使用Valine评论系统并且使用邮件通知有新评论';
+var disqus_url = 'https://itgoyo.github.io/2019/07/12/Hexo使用Valine评论系统并且使用邮件通知有新评论/';
+$('.btn_click_load').click(function() {
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  $('.btn_click_load').css('display','none');
+});
+$.ajax({
+  url: 'https://disqus.com/next/config.json',
+  timeout: 3000,
+  type: 'GET',
+  success: (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    $('.btn_click_load').css('display','none');
+  })(),
+  error: function() {
+    $('.btn_click_load').css('display','block');
+  }
+});</script><script id="dsq-count-scr" src="//itgoyo.disqus.com/count.js" async></script></div><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'true' == true ? true : false;
+var verify = 'false' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'HzQ14MvDJNcJ4Y73LGzWkuKD-gzGzoHsz',
+  appKey:'gPggWGa1wwwhXbzuhnSQyQDx',
+  placeholder:'Just so so',
+  avatar:'mm',
+  guest_info:guest_info,
+  pageSize:'10'
+})</script></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Go/">Go</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mac/">Mac</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vim/">Vim</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/">开发工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/开源项目/">开源项目</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活随笔/">生活随笔</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程相关/">编程相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/生活随笔/" style="font-size: 15px;">生活随笔</a> <a href="/tags/Program/" style="font-size: 15px;">Program</a> <a href="/tags/Github/" style="font-size: 15px;">Github</a> <a href="/tags/Go/" style="font-size: 15px;">Go</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/Android/" style="font-size: 15px;">Android</a> <a href="/tags/Mac/" style="font-size: 15px;">Mac</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/Shadowsocks/" style="font-size: 15px;">Shadowsocks</a> <a href="/tags/科学上网/" style="font-size: 15px;">科学上网</a> <a href="/tags/Vim/" style="font-size: 15px;">Vim</a> <a href="/tags/插件/" style="font-size: 15px;">插件</a> <a href="/tags/读书笔记/" style="font-size: 15px;">读书笔记</a> <a href="/tags/读书/" style="font-size: 15px;">读书</a> <a href="/tags/记忆力/" style="font-size: 15px;">记忆力</a> <a href="/tags/Markdown/" style="font-size: 15px;">Markdown</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/shell/" style="font-size: 15px;">shell</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/i3/" style="font-size: 15px;">i3</a> <a href="/tags/Rofi/" style="font-size: 15px;">Rofi</a> <a href="/tags/ncmpcpp/" style="font-size: 15px;">ncmpcpp</a> <a href="/tags/Music/" style="font-size: 15px;">Music</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/11/29/2019一整年的总结与一些个人反思/">2019一整年的总结与一些个人反思</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/19/Docker容器造化钟神秀/">Docker容器造化钟神秀</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/17/Tmux的使用教程/">Tmux的使用教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/16/cnBlogs博客园主题样式美化/">cnBlogs博客园主题样式美化</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/13/PicGo-Github-CDN加速图床-免费的难道它不香吗？/">PicGo+Github+CDN加速图床,免费的难道它不香吗？</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/02/如何免费做一个属于自己稳定有效的图床/">如何免费做一个属于自己稳定有效的图床</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/02/关于自己每日计划是如何制定的/">关于自己每日计划是如何制定的</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/31/java多线程的4种实现方式/">java多线程的4种实现方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/31/2020跨年文案/">2020跨年文案</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/03/Go语言数据类型/">Go语言数据类型</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-comment-o"> 最近评论</i></div><script type="text/javascript" src="//itgoyo.disqus.com/recent_comments_widget.js?num_items=5&amp;hide_avatars=1&amp;avatar_size=32&amp;excerpt_length=20&amp;hide_mods=1"></script></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://github.com/itgoyo" title="Github" target="_blank">Github</a><ul></ul><a href="https://space.bilibili.com/12767066/#/" title="BiliBili" target="_blank">BiliBili</a><ul></ul><a href="https://www.zhihu.com/people/mkosto/activities" title="ZhiHu" target="_blank">ZhiHu</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><p align="center">
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+</p><div id="footer">Copyright © 2020 <a href="/." rel="nofollow">itgoyo'blog.</a> 作者Github:<a rel="nofollow" target="_blank" href="https://github.com/itgoyo"> itgoyo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/itgoyo"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.2.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.2.5/jquery.fancybox.min.css"><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+   search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = '//hm.baidu.com/hm.js?' + 'c16d3c10c9ea6c6fe749d9926d52b0d6';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+  })();
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html><div>
+<a href="https://github.com/itgoyo"><img class="nofancybox" ;="" style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+</div>

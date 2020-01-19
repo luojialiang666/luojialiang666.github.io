@@ -1,0 +1,246 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.8.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>Tmux的使用教程 | itgoyo'blog</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/7.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({google_ad_client: "ca-pub-5803807445434654", enable_page_level_ads: true});</script></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Tmux的使用教程</h1><a id="logo" href="/.">itgoyo'blog</a><p class="description">Talk is cheap,Show me the girl.</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 主页</i></a><a href="/archives/"><i class="fa fa-archive"> 文章</i></a><a href="/history"><i class="fa fa-calendar"> 历史</i></a><a href="/books"><i class="fa fa-book"> 书籍</i></a><a href="/movies"><i class="fa fa-film"> 电影</i></a><a href="/games"><i class="fa fa-gamepad"> 游戏</i></a><a href="https://itgoyo.github.io/gallery.html"><i class="fa fa-photo"> 相册</i></a><a href="https://itgoyo.github.io/resume"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> RSS</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">Tmux的使用教程</h1><div class="post-meta">Jan 17, 2020<span> | </span><span class="category"><a href="/categories/开发工具/">开发工具</a></span><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> 阅读</span></span><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5803807445434654"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div><a class="disqus-comment-count" data-disqus-identifier="2020/01/17/Tmux的使用教程/" href="/2020/01/17/Tmux的使用教程/#disqus_thread"></a><a class="disqus-comment-count" href="/2020/01/17/Tmux的使用教程/#vcomment"><span class="valine-comment-count" data-xid="/2020/01/17/Tmux的使用教程/"></span><span>条评论</span></a><div class="clear"><div class="toc-article" id="toc"><div class="toc-title">文章目录</div><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、Tmux-是什么？"><span class="toc-number">1.</span> <span class="toc-text">一、Tmux 是什么？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-会话与进程"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 会话与进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-Tmux-的作用"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 Tmux 的作用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、基本用法"><span class="toc-number">2.</span> <span class="toc-text">二、基本用法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-安装"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-启动与退出"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 启动与退出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-前缀键"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 前缀键</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、会话管理"><span class="toc-number">3.</span> <span class="toc-text">三、会话管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-新建会话"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 新建会话</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-分离会话"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 分离会话</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-接入会话"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 接入会话</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-杀死会话"><span class="toc-number">3.4.</span> <span class="toc-text">3.4 杀死会话</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-切换会话"><span class="toc-number">3.5.</span> <span class="toc-text">3.5 切换会话</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6-重命名会话"><span class="toc-number">3.6.</span> <span class="toc-text">3.6 重命名会话</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-7-会话快捷键"><span class="toc-number">3.7.</span> <span class="toc-text">3.7 会话快捷键</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、最简操作流程"><span class="toc-number">4.</span> <span class="toc-text">四、最简操作流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、窗格操作"><span class="toc-number">5.</span> <span class="toc-text">五、窗格操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-划分窗格"><span class="toc-number">5.1.</span> <span class="toc-text">5.1 划分窗格</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-移动光标"><span class="toc-number">5.2.</span> <span class="toc-text">5.2 移动光标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-交换窗格位置"><span class="toc-number">5.3.</span> <span class="toc-text">5.3 交换窗格位置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4-窗格快捷键"><span class="toc-number">5.4.</span> <span class="toc-text">5.4 窗格快捷键</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、窗口管理"><span class="toc-number">6.</span> <span class="toc-text">六、窗口管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-新建窗口"><span class="toc-number">6.1.</span> <span class="toc-text">6.1 新建窗口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-切换窗口"><span class="toc-number">6.2.</span> <span class="toc-text">6.2 切换窗口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3-重命名窗口"><span class="toc-number">6.3.</span> <span class="toc-text">6.3 重命名窗口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-4-窗口快捷键"><span class="toc-number">6.4.</span> <span class="toc-text">6.4 窗口快捷键</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七、其他命令"><span class="toc-number">7.</span> <span class="toc-text">七、其他命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#八、tmux恢复插件tmux-resurrect"><span class="toc-number">7.1.</span> <span class="toc-text">八、tmux恢复插件tmux-resurrect</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#九、参考链接"><span class="toc-number">8.</span> <span class="toc-text">九、参考链接</span></a></li></ol></div></div><div class="post-content"><h2 id="一、Tmux-是什么？"><a href="#一、Tmux-是什么？" class="headerlink" title="一、Tmux 是什么？"></a>一、Tmux 是什么？</h2><h3 id="1-1-会话与进程"><a href="#1-1-会话与进程" class="headerlink" title="1.1 会话与进程"></a>1.1 会话与进程</h3><p>命令行的典型使用方式是，打开一个终端窗口（terminal window，以下简称 “窗口”），在里面输入命令。<strong>用户与计算机的这种临时的交互，称为一次 “会话”（session）</strong> 。</p>
+<p>会话的一个重要特点是，窗口与其中启动的进程是<a href="http://www.ruanyifeng.com/blog/2016/02/linux-daemon.html" target="_blank" rel="noopener">连在一起</a>的。打开窗口，会话开始；关闭窗口，会话结束，会话内部的进程也会随之终止，不管有没有运行完。</p>
+<p>一个典型的例子就是，<a href="http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html" target="_blank" rel="noopener">SSH 登录</a>远程计算机，打开一个远程窗口执行命令。这时，网络突然断线，再次登录的时候，是找不回上一次执行的命令的。因为上一次 SSH 会话已经终止了，里面的进程也随之消失了。</p>
+<p>为了解决这个问题，会话与窗口可以 “解绑”：窗口关闭时，会话并不终止，而是继续运行，等到以后需要的时候，再让会话 “绑定” 其他窗口。</p>
+<h3 id="1-2-Tmux-的作用"><a href="#1-2-Tmux-的作用" class="headerlink" title="1.2 Tmux 的作用"></a>1.2 Tmux 的作用</h3><p><strong>Tmux 就是会话与窗口的 “解绑” 工具，将它们彻底分离。</strong></p>
+<blockquote>
+<p>（1）它允许在单个窗口中，同时访问多个会话。这对于同时运行多个命令行程序很有用。</p>
+<p>（2） 它可以让新窗口 “接入” 已经存在的会话。</p>
+<p>（3）它允许每个会话有多个连接窗口，因此可以多人实时共享会话。</p>
+<p>（4）它还支持窗口任意的垂直和水平拆分。</p>
+</blockquote>
+<p>类似的终端复用器还有 GNU Screen。Tmux 与它功能相似，但是更易用，也更强大。</p>
+<h2 id="二、基本用法"><a href="#二、基本用法" class="headerlink" title="二、基本用法"></a>二、基本用法</h2><h3 id="2-1-安装"><a href="#2-1-安装" class="headerlink" title="2.1 安装"></a>2.1 安装</h3><p>Tmux 一般需要自己安装。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt;</span><br><span class="line">&gt; <span class="comment"># Ubuntu 或 Debian</span></span><br><span class="line">&gt; $ sudo apt-get install tmux</span><br><span class="line">&gt;</span><br><span class="line">&gt; <span class="comment"># CentOS 或 Fedora</span></span><br><span class="line">&gt; $ sudo yum install tmux</span><br><span class="line">&gt;</span><br><span class="line">&gt; <span class="comment"># Mac</span></span><br><span class="line">&gt; $ brew install tmux</span><br><span class="line">&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="2-2-启动与退出"><a href="#2-2-启动与退出" class="headerlink" title="2.2 启动与退出"></a>2.2 启动与退出</h3><p>安装完成后，键入 <code>tmux</code> 命令，就进入了 Tmux 窗口。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;</span><br><span class="line">&gt; $ tmux</span><br><span class="line">&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>上面命令会启动 Tmux 窗口，底部有一个状态栏。状态栏的左侧是窗口信息（编号和名称），右侧是系统信息。</p>
+<p><img src="https://www.wangbase.com/blogimg/asset/201910/bg2019102006.png" alt=""></p>
+<p>按下 <code>Ctrl+d</code> 或者显式输入 <code>exit</code> 命令，就可以退出 Tmux 窗口。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;</span><br><span class="line">&gt; $ <span class="built_in">exit</span></span><br><span class="line">&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="2-3-前缀键"><a href="#2-3-前缀键" class="headerlink" title="2.3 前缀键"></a>2.3 前缀键</h3><p>Tmux 窗口有大量的快捷键。所有快捷键都要通过前缀键唤起。默认的前缀键是 <code>Ctrl+b</code>，即先按下 <code>Ctrl+b</code>，快捷键才会生效。</p>
+<p>举例来说，帮助命令的快捷键是 <code>Ctrl+b ?</code>。它的用法是，在 Tmux 窗口中，先按下 <code>Ctrl+b</code>，再按下 <code>?</code>，就会显示帮助信息。</p>
+<p>然后，按下 ESC 键或 <code>q</code> 键，就可以退出帮助。</p>
+<h2 id="三、会话管理"><a href="#三、会话管理" class="headerlink" title="三、会话管理"></a>三、会话管理</h2><h3 id="3-1-新建会话"><a href="#3-1-新建会话" class="headerlink" title="3.1 新建会话"></a>3.1 新建会话</h3><p>第一个启动的 Tmux 窗口，编号是 <code>0</code>，第二个窗口的编号是 <code>1</code>，以此类推。这些窗口对应的会话，就是 0 号会话、1 号会话。</p>
+<p>使用编号区分会话，不太直观，更好的方法是为会话起名。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;</span><br><span class="line">&gt; $ tmux new -s &lt;session-name&gt;</span><br><span class="line">&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>上面命令新建一个指定名称的会话。</p>
+<h3 id="3-2-分离会话"><a href="#3-2-分离会话" class="headerlink" title="3.2 分离会话"></a>3.2 分离会话</h3><p>在 Tmux 窗口中，按下 <code>Ctrl+b d</code> 或者输入 <code>tmux detach</code> 命令，就会将当前会话与窗口分离。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;</span><br><span class="line">&gt; $ tmux detach</span><br><span class="line">&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>上面命令执行后，就会退出当前 Tmux 窗口，但是会话和里面的进程仍然在后台运行。</p>
+<p><code>tmux ls</code> 命令可以查看当前所有的 Tmux 会话。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;</span><br><span class="line">&gt; $ tmux ls</span><br><span class="line">&gt; <span class="comment"># or</span></span><br><span class="line">&gt; $ tmux list-session</span><br><span class="line">&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="3-3-接入会话"><a href="#3-3-接入会话" class="headerlink" title="3.3 接入会话"></a>3.3 接入会话</h3><p><code>tmux attach</code> 命令用于重新接入某个已存在的会话。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;</span><br><span class="line">&gt; <span class="comment"># 使用会话编号</span></span><br><span class="line">&gt; $ tmux attach -t 0</span><br><span class="line">&gt;</span><br><span class="line">&gt; <span class="comment"># 使用会话名称</span></span><br><span class="line">&gt; $ tmux attach -t &lt;session-name&gt;</span><br><span class="line">&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="3-4-杀死会话"><a href="#3-4-杀死会话" class="headerlink" title="3.4 杀死会话"></a>3.4 杀死会话</h3><p><code>tmux kill-session</code> 命令用于杀死某个会话。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;</span><br><span class="line">&gt; <span class="comment"># 使用会话编号</span></span><br><span class="line">&gt; $ tmux <span class="built_in">kill</span>-session -t 0</span><br><span class="line">&gt;</span><br><span class="line">&gt; <span class="comment"># 使用会话名称</span></span><br><span class="line">&gt; $ tmux <span class="built_in">kill</span>-session -t &lt;session-name&gt;</span><br><span class="line">&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="3-5-切换会话"><a href="#3-5-切换会话" class="headerlink" title="3.5 切换会话"></a>3.5 切换会话</h3><p><code>tmux switch</code> 命令用于切换会话。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;</span><br><span class="line">&gt; <span class="comment"># 使用会话编号</span></span><br><span class="line">&gt; $ tmux switch -t 0</span><br><span class="line">&gt;</span><br><span class="line">&gt; <span class="comment"># 使用会话名称</span></span><br><span class="line">&gt; $ tmux switch -t &lt;session-name&gt;</span><br><span class="line">&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="3-6-重命名会话"><a href="#3-6-重命名会话" class="headerlink" title="3.6 重命名会话"></a>3.6 重命名会话</h3><p><code>tmux rename-session</code> 命令用于重命名会话。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;</span><br><span class="line">&gt; $ tmux rename-session -t 0 &lt;new-name&gt;</span><br><span class="line">&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>上面命令将 0 号会话重命名。</p>
+<h3 id="3-7-会话快捷键"><a href="#3-7-会话快捷键" class="headerlink" title="3.7 会话快捷键"></a>3.7 会话快捷键</h3><p>下面是一些会话相关的快捷键。</p>
+<blockquote>
+<ul>
+<li><code>Ctrl+b d</code>：分离当前会话。</li>
+<li><code>Ctrl+b s</code>：列出所有会话。</li>
+<li><code>Ctrl+b $</code>：重命名当前会话。</li>
+</ul>
+</blockquote>
+<h2 id="四、最简操作流程"><a href="#四、最简操作流程" class="headerlink" title="四、最简操作流程"></a>四、最简操作流程</h2><p>综上所述，以下是 Tmux 的最简操作流程。</p>
+<blockquote>
+<ol>
+<li>新建会话 <code>tmux new -s my_session</code>。</li>
+<li>在 Tmux 窗口运行所需的程序。</li>
+<li>按下快捷键 <code>Ctrl+b d</code> 将会话分离。</li>
+<li>下次使用时，重新连接到会话 <code>tmux attach-session -t my_session</code>。</li>
+</ol>
+</blockquote>
+<h2 id="五、窗格操作"><a href="#五、窗格操作" class="headerlink" title="五、窗格操作"></a>五、窗格操作</h2><p>Tmux 可以将窗口分成多个窗格（pane），每个窗格运行不同的命令。以下命令都是在 Tmux 窗口中执行。</p>
+<h3 id="5-1-划分窗格"><a href="#5-1-划分窗格" class="headerlink" title="5.1 划分窗格"></a>5.1 划分窗格</h3><p><code>tmux split-window</code> 命令用来划分窗格。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;</span><br><span class="line">&gt; <span class="comment"># 划分上下两个窗格</span></span><br><span class="line">&gt; $ tmux split-window</span><br><span class="line">&gt;</span><br><span class="line">&gt; <span class="comment"># 划分左右两个窗格</span></span><br><span class="line">&gt; $ tmux split-window -h</span><br><span class="line">&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><img src="https://www.wangbase.com/blogimg/asset/201910/bg2019102007.jpg" alt=""></p>
+<h3 id="5-2-移动光标"><a href="#5-2-移动光标" class="headerlink" title="5.2 移动光标"></a>5.2 移动光标</h3><p><code>tmux select-pane</code> 命令用来移动光标位置。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&gt;</span><br><span class="line">&gt; <span class="comment"># 光标切换到上方窗格</span></span><br><span class="line">&gt; $ tmux select-pane -U</span><br><span class="line">&gt;</span><br><span class="line">&gt; <span class="comment"># 光标切换到下方窗格</span></span><br><span class="line">&gt; $ tmux select-pane -D</span><br><span class="line">&gt;</span><br><span class="line">&gt; <span class="comment"># 光标切换到左边窗格</span></span><br><span class="line">&gt; $ tmux select-pane -L</span><br><span class="line">&gt;</span><br><span class="line">&gt; <span class="comment"># 光标切换到右边窗格</span></span><br><span class="line">&gt; $ tmux select-pane -R</span><br><span class="line">&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="5-3-交换窗格位置"><a href="#5-3-交换窗格位置" class="headerlink" title="5.3 交换窗格位置"></a>5.3 交换窗格位置</h3><p><code>tmux swap-pane</code> 命令用来交换窗格位置。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;</span><br><span class="line">&gt; <span class="comment"># 当前窗格上移</span></span><br><span class="line">&gt; $ tmux swap-pane -U</span><br><span class="line">&gt;</span><br><span class="line">&gt; <span class="comment"># 当前窗格下移</span></span><br><span class="line">&gt; $ tmux swap-pane -D</span><br><span class="line">&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="5-4-窗格快捷键"><a href="#5-4-窗格快捷键" class="headerlink" title="5.4 窗格快捷键"></a>5.4 窗格快捷键</h3><p>下面是一些窗格操作的快捷键。</p>
+<blockquote>
+<ul>
+<li><code>Ctrl+b %</code>：划分左右两个窗格。</li>
+<li><code>Ctrl+b &quot;</code>：划分上下两个窗格。</li>
+<li><code>Ctrl+b &lt;arrow key&gt;</code>：光标切换到其他窗格。<code>&lt;arrow key&gt;</code> 是指向要切换到的窗格的方向键，比如切换到下方窗格，就按方向键<code>↓</code>。</li>
+<li><code>Ctrl+b ;</code>：光标切换到上一个窗格。</li>
+<li><code>Ctrl+b o</code>：光标切换到下一个窗格。</li>
+<li><code>Ctrl+b {</code>：当前窗格左移。</li>
+<li><code>Ctrl+b }</code>：当前窗格右移。</li>
+<li><code>Ctrl+b Ctrl+o</code>：当前窗格上移。</li>
+<li><code>Ctrl+b Alt+o</code>：当前窗格下移。</li>
+<li><code>Ctrl+b x</code>：关闭当前窗格。</li>
+<li><code>Ctrl+b !</code>：将当前窗格拆分为一个独立窗口。</li>
+<li><code>Ctrl+b z</code>：当前窗格全屏显示，再使用一次会变回原来大小。</li>
+<li><code>Ctrl+b Ctrl+&lt;arrow key&gt;</code>：按箭头方向调整窗格大小。</li>
+<li><code>Ctrl+b q</code>：显示窗格编号。</li>
+</ul>
+</blockquote>
+<h2 id="六、窗口管理"><a href="#六、窗口管理" class="headerlink" title="六、窗口管理"></a>六、窗口管理</h2><p>除了将一个窗口划分成多个窗格，Tmux 也允许新建多个窗口。</p>
+<h3 id="6-1-新建窗口"><a href="#6-1-新建窗口" class="headerlink" title="6.1 新建窗口"></a>6.1 新建窗口</h3><p><code>tmux new-window</code> 命令用来创建新窗口。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;</span><br><span class="line">&gt; $ tmux new-window</span><br><span class="line">&gt;</span><br><span class="line">&gt; <span class="comment"># 新建一个指定名称的窗口</span></span><br><span class="line">&gt; $ tmux new-window -n &lt;window-name&gt;</span><br><span class="line">&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="6-2-切换窗口"><a href="#6-2-切换窗口" class="headerlink" title="6.2 切换窗口"></a>6.2 切换窗口</h3><p><code>tmux select-window</code> 命令用来切换窗口。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;</span><br><span class="line">&gt; <span class="comment"># 切换到指定编号的窗口</span></span><br><span class="line">&gt; $ tmux select-window -t &lt;window-number&gt;</span><br><span class="line">&gt;</span><br><span class="line">&gt; <span class="comment"># 切换到指定名称的窗口</span></span><br><span class="line">&gt; $ tmux select-window -t &lt;window-name&gt;</span><br><span class="line">&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="6-3-重命名窗口"><a href="#6-3-重命名窗口" class="headerlink" title="6.3 重命名窗口"></a>6.3 重命名窗口</h3><p><code>tmux rename-window</code> 命令用于为当前窗口起名（或重命名）。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;</span><br><span class="line">&gt; $ tmux rename-window &lt;new-name&gt;</span><br><span class="line">&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="6-4-窗口快捷键"><a href="#6-4-窗口快捷键" class="headerlink" title="6.4 窗口快捷键"></a>6.4 窗口快捷键</h3><p>下面是一些窗口操作的快捷键。</p>
+<blockquote>
+<ul>
+<li><code>Ctrl+b c</code>：创建一个新窗口，状态栏会显示多个窗口的信息。</li>
+<li><code>Ctrl+b p</code>：切换到上一个窗口（按照状态栏上的顺序）。</li>
+<li><code>Ctrl+b n</code>：切换到下一个窗口。</li>
+<li><code>Ctrl+b &lt;number&gt;</code>：切换到指定编号的窗口，其中的 <code>&lt;number&gt;</code> 是状态栏上的窗口编号。</li>
+<li><code>Ctrl+b w</code>：从列表中选择窗口。</li>
+<li><code>Ctrl+b ,</code>：窗口重命名。</li>
+</ul>
+</blockquote>
+<h2 id="七、其他命令"><a href="#七、其他命令" class="headerlink" title="七、其他命令"></a>七、其他命令</h2><p>下面是一些其他命令。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&gt;</span><br><span class="line">&gt; <span class="comment"># 列出所有快捷键，及其对应的 Tmux 命令</span></span><br><span class="line">&gt; $ tmux list-keys</span><br><span class="line">&gt;</span><br><span class="line">&gt; <span class="comment"># 列出所有 Tmux 命令及其参数</span></span><br><span class="line">&gt; $ tmux list-commands</span><br><span class="line">&gt;</span><br><span class="line">&gt; <span class="comment"># 列出当前所有 Tmux 会话的信息</span></span><br><span class="line">&gt; $ tmux info</span><br><span class="line">&gt;</span><br><span class="line">&gt; <span class="comment"># 重新加载当前的 Tmux 配置</span></span><br><span class="line">&gt; $ tmux <span class="built_in">source</span>-file ~/.tmux.conf</span><br><span class="line">&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="八、tmux恢复插件tmux-resurrect"><a href="#八、tmux恢复插件tmux-resurrect" class="headerlink" title="八、tmux恢复插件tmux-resurrect"></a>八、tmux恢复插件tmux-resurrect</h3><p>Tmux Resurrect 无须任何配置，就能够备份 tmux 会话中的各种细节，包括窗口、面板的顺序、布局、工作目录，运行程序等等数据。因此它能在系统重启后完全地恢复会话。由于其幂等的恢复机制，它不会试图去恢复一个已经存在的窗口或者面板，所以，即使你不小心多恢复了几次会话，它也不会出现问题，这样主动恢复时我们就不必担心手抖多按了一次。另外，如果你是 <a href="https://github.com/tmuxinator/tmuxinator" target="_blank" rel="noopener">tmuxinator</a> 用户，我也建议你迁移到 tmux-resurrect 插件上来，具体请参考 <a href="https://github.com/tmux-plugins/tmux-resurrect/blob/master/docs/migrating_from_tmuxinator.md#migrating-from-tmuxinator" target="_blank" rel="noopener">Migrating from <code>tmuxinator</code></a>。</p>
+<p>Tmux Resurrec 安装过程如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd ~/.tmux</span><br><span class="line">mkdir plugins</span><br><span class="line">git clone https://github.com/tmux-plugins/tmux-resurrect.git</span><br></pre></td></tr></table></figure>
+<p>安装后需在 <code>~/.tmux.conf</code> 中增加一行配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">run-shell ~/.tmux/plugins/tmux-resurrect/resurrect.tmux</span><br></pre></td></tr></table></figure>
+<p>至此安装成功，按下 <code>prefix + r</code> 重载 tmux 配置。</p>
+<p>Tmux Resurrec 提供如下两个操作：</p>
+<ul>
+<li><strong>保存</strong>，快捷指令是 <code>prefix</code> + <code>Ctrl + s</code>，tmux 状态栏在保存开始，保存后分别提示”Saving…”，”Tmux environment saved !”。</li>
+<li><strong>恢复</strong>，快捷指令是 <code>prefix</code> + <code>Ctrl + r</code>，tmux 状态栏在恢复开始，恢复后分别提示”Restoring…”，”Tmux restore complete !”。</li>
+</ul>
+<p>保存时，tmux 会话的详细信息会以文本文件的格式保存到 <code>~/.tmux/resurrect</code> 目录，恢复时则从此处读取，由于数据文件是明文的，因此你完全可以自由管理或者编辑这些会话状态文件（如果备份频繁，记得定期清除历史备份）。</p>
+<p><strong>可选的配置</strong></p>
+<p>Tmux Resurrec 本身是免配置开箱即用的，但同时也提供了如下选项以便修改其默认设置。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">set -g @resurrect-save &apos;S&apos; # 修改保存指令为S</span><br><span class="line">set -g @resurrect-restore &apos;R&apos; 修改恢复指令为R</span><br><span class="line"># 修改会话数据的保持路径，此处不能使用除了$HOME, $HOSTNAME, ~之外的环境变量</span><br><span class="line">set -g @resurrect-dir &apos;/some/path&apos;</span><br></pre></td></tr></table></figure>
+<p>默认情况下只有一个保守的列表项（即 <code>vi vim nvim emacs man less more tail top htop irssi mutt</code>）可以恢复，对此 <a href="https://github.com/tmux-plugins/tmux-resurrect/blob/master/docs/restoring_programs.md" target="_blank" rel="noopener">Restoring programs doc</a> 解释了怎么去恢复额外的项目。</p>
+<p><strong>进阶的备份</strong></p>
+<p>除了基础备份外，Tmux Resurrec 还提供<strong>进阶的备份功能</strong>，如下所示：</p>
+<ul>
+<li>恢复 vim 和 neovim 会话</li>
+<li>恢复面板内容</li>
+<li>恢复 shell 的历史记录（实验性功能）</li>
+</ul>
+<p>进阶的备份功能默认不开启，需要特别配置。</p>
+<p>1）恢复 vim 和 neovim 会话，需要完成如下两步：</p>
+<ul>
+<li><p>通过 vim 的 vim-obsession 插件保存 vim/neovim 会话。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd ~/.vim/bundle</span><br><span class="line">git clone git://github.com/tpope/vim-obsession.git</span><br><span class="line">vim -u NONE -c &quot;helptags vim-obsession/doc&quot; -c q</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在 <code>~/.tmux.conf</code> 中增加两行配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set -g @resurrect-strategy-vim &apos;session&apos; # for vim</span><br><span class="line">set -g @resurrect-strategy-nvim &apos;session&apos; # for neovim</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>2）恢复面板内容，需在 <code>~/.tmux.conf</code> 中增加一行配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set -g @resurrect-capture-pane-contents &apos;on&apos; # 开启恢复面板内容功能</span><br></pre></td></tr></table></figure>
+<p>目前使用该功能时，请确保 tmux 的 <code>default-command</code> 没有包含 <code>&amp;&amp;</code> 或者 <code>||</code> 操作符，否则将导致 <a href="https://github.com/tmux-plugins/tmux-resurrect/issues/98" target="_blank" rel="noopener">bug</a>。（查看 <code>default-command</code> 的值，请使用命令 <code>tmux show -g default-command</code>。）</p>
+<p>3）恢复 shell 的历史记录，需在 <code>~/.tmux.conf</code> 中增加一行配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set -g @resurrect-save-shell-history &apos;on&apos;</span><br></pre></td></tr></table></figure>
+<p>由于技术的限制，保存时，只有无前台任务运行的面板，它的 shell 历史记录才能被保存。</p>
+<h2 id="九、参考链接"><a href="#九、参考链接" class="headerlink" title="九、参考链接"></a>九、参考链接</h2><ul>
+<li><a href="https://www.hamvocke.com/blog/a-quick-and-easy-guide-to-tmux/" target="_blank" rel="noopener">A Quick and Easy Guide to tmux</a></li>
+<li><a href="https://danielmiessler.com/study/tmux/" target="_blank" rel="noopener">Tactical tmux: The 10 Most Important Commands</a></li>
+<li><a href="https://linuxize.com/post/getting-started-with-tmux/" target="_blank" rel="noopener">Getting started with Tmux</a></li>
+</ul>
+<hr>
+<div align="center"><br><br>        发现更多更好玩的，欢迎关注我的微信公众号:<span style="color:red;"> FullStacker </span><br><br>        <img src="/img/fullstacker.jpg" height="400px" width="400px"><br>    </div>
+</div><iframe src="/donate/?AliPayQR=/img/alipay.jpg&amp;WeChatQR=/img/wechat.jpg&amp;GitHub=null&amp;BTCQR=null&amp;BTCKEY=null&amp;PayPal=null" style="overflow-x:hidden; overflow-y:hidden; border:0xp none #fff; min-height:300px; width:100%;" frameborder="0" scrolling="no"></iframe><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a class="article-share-link" data-url="https://itgoyo.github.io/2020/01/17/Tmux的使用教程/" data-id="ck5kuvlm2001xapxw5fboal1c" data-qrcode="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACI0lEQVR42u3ay6rDMAxF0fz/T+fCnRacfSS3EHl7VNrgZGWg6uHrwuv+X/ybz1/X19wf6/rGkiFDxmsZ93Lxh967A99ZhgwZ5zDS4Lh+lDQekv0fnlmGDBky8C3XYXGd9pEwLUOGDBl7C841Jg3oMmTIkEHSNb4pKjsxaXMtLkOGjBcy0sHALz9/cb4hQ4aMlzDuxlqHSx5qNzyJDBkyRjNI2leLeGkzjn+DHkKGDBmDGLyVz1tg5HWkY86HfWTIkDGakbbyUx5pw5HrA4AMGTLGMX4ZRlMYH0vIkCFjNqNfCe4qemsjzGAeK0OGjHEMksaRW9aGo7VmnAwZMqYyiulXO4DyghklrDJkyDiS0Rku1hK7tIh9aLfJkCFjHIOngGmaSDAbwroMGTJGM8gYoJPApQODNJQHk1gZMmS8lsEPN/AgmDK2vXsZMmQMZZCQmm7dSQRbp9tkyJBxMGPXSCBNE3l5LEOGjHMY6RbxaY7GKALlgTJkyDiYQVI3PlRIBwn8LjJkyDiHkRa3PK1MX0Er4MqQIWMco9PiL96Mh9H070GGDBnjGHe4SOufF718/4f0UYYMGaMZ6aGKzhENPgqtXSlDhozZjDR0po2w9OBF8aiZDBkyDmCkIbLfdKuVrw+NNhkyZMgIG/3FUrMU1mXIkCGjMzBIUz0yOpUhQ8aZDN6sryF5k64WoGXIkDGbkSZqaxgvazup5IYRpgwZMt7B+AOsdgPxl/574gAAAABJRU5ErkJggg==">分享</a><div class="tags"><a href="/tags/Android/">Android</a></div><div class="post-nav"><a class="pre" href="/2020/01/19/Docker容器造化钟神秀/">Docker容器造化钟神秀</a><a class="next" href="/2020/01/16/cnBlogs博客园主题样式美化/"></a></div><div id="disqus_thread"><div class="btn_click_load"><button class="disqus_click_btn">阅读评论 「请确保 disqus.com 可以正常加载」</button></div><script>var disqus_shortname = 'itgoyo';
+var disqus_identifier = '2020/01/17/Tmux的使用教程/';
+var disqus_title = 'Tmux的使用教程';
+var disqus_url = 'https://itgoyo.github.io/2020/01/17/Tmux的使用教程/';
+$('.btn_click_load').click(function() {
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  $('.btn_click_load').css('display','none');
+});
+$.ajax({
+  url: 'https://disqus.com/next/config.json',
+  timeout: 3000,
+  type: 'GET',
+  success: (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    $('.btn_click_load').css('display','none');
+  })(),
+  error: function() {
+    $('.btn_click_load').css('display','block');
+  }
+});</script><script id="dsq-count-scr" src="//itgoyo.disqus.com/count.js" async></script></div><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'true' == true ? true : false;
+var verify = 'false' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'HzQ14MvDJNcJ4Y73LGzWkuKD-gzGzoHsz',
+  appKey:'gPggWGa1wwwhXbzuhnSQyQDx',
+  placeholder:'Just so so',
+  avatar:'mm',
+  guest_info:guest_info,
+  pageSize:'10'
+})</script></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Go/">Go</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mac/">Mac</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vim/">Vim</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/">开发工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/开源项目/">开源项目</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活随笔/">生活随笔</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程相关/">编程相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/生活随笔/" style="font-size: 15px;">生活随笔</a> <a href="/tags/Program/" style="font-size: 15px;">Program</a> <a href="/tags/Github/" style="font-size: 15px;">Github</a> <a href="/tags/Go/" style="font-size: 15px;">Go</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/Android/" style="font-size: 15px;">Android</a> <a href="/tags/Mac/" style="font-size: 15px;">Mac</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/Shadowsocks/" style="font-size: 15px;">Shadowsocks</a> <a href="/tags/科学上网/" style="font-size: 15px;">科学上网</a> <a href="/tags/Vim/" style="font-size: 15px;">Vim</a> <a href="/tags/插件/" style="font-size: 15px;">插件</a> <a href="/tags/读书笔记/" style="font-size: 15px;">读书笔记</a> <a href="/tags/读书/" style="font-size: 15px;">读书</a> <a href="/tags/记忆力/" style="font-size: 15px;">记忆力</a> <a href="/tags/Markdown/" style="font-size: 15px;">Markdown</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/shell/" style="font-size: 15px;">shell</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/i3/" style="font-size: 15px;">i3</a> <a href="/tags/Rofi/" style="font-size: 15px;">Rofi</a> <a href="/tags/ncmpcpp/" style="font-size: 15px;">ncmpcpp</a> <a href="/tags/Music/" style="font-size: 15px;">Music</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/11/29/2019一整年的总结与一些个人反思/">2019一整年的总结与一些个人反思</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/19/Docker容器造化钟神秀/">Docker容器造化钟神秀</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/17/Tmux的使用教程/">Tmux的使用教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/16/cnBlogs博客园主题样式美化/">cnBlogs博客园主题样式美化</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/13/PicGo-Github-CDN加速图床-免费的难道它不香吗？/">PicGo+Github+CDN加速图床,免费的难道它不香吗？</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/02/如何免费做一个属于自己稳定有效的图床/">如何免费做一个属于自己稳定有效的图床</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/02/关于自己每日计划是如何制定的/">关于自己每日计划是如何制定的</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/31/java多线程的4种实现方式/">java多线程的4种实现方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/31/2020跨年文案/">2020跨年文案</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/03/Go语言数据类型/">Go语言数据类型</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-comment-o"> 最近评论</i></div><script type="text/javascript" src="//itgoyo.disqus.com/recent_comments_widget.js?num_items=5&amp;hide_avatars=1&amp;avatar_size=32&amp;excerpt_length=20&amp;hide_mods=1"></script></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://github.com/itgoyo" title="Github" target="_blank">Github</a><ul></ul><a href="https://space.bilibili.com/12767066/#/" title="BiliBili" target="_blank">BiliBili</a><ul></ul><a href="https://www.zhihu.com/people/mkosto/activities" title="ZhiHu" target="_blank">ZhiHu</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><p align="center">
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+</p><div id="footer">Copyright © 2020 <a href="/." rel="nofollow">itgoyo'blog.</a> 作者Github:<a rel="nofollow" target="_blank" href="https://github.com/itgoyo"> itgoyo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/itgoyo"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.2.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.2.5/jquery.fancybox.min.css"><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+   search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = '//hm.baidu.com/hm.js?' + 'c16d3c10c9ea6c6fe749d9926d52b0d6';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+  })();
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html><div>
+<a href="https://github.com/itgoyo"><img class="nofancybox" ;="" style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+</div>

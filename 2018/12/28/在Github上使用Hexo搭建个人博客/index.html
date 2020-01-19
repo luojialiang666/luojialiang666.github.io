@@ -1,0 +1,215 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.8.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>在Github上使用Hexo搭建个人博客 | itgoyo'blog</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/7.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({google_ad_client: "ca-pub-5803807445434654", enable_page_level_ads: true});</script></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">在Github上使用Hexo搭建个人博客</h1><a id="logo" href="/.">itgoyo'blog</a><p class="description">Talk is cheap,Show me the girl.</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 主页</i></a><a href="/archives/"><i class="fa fa-archive"> 文章</i></a><a href="/history"><i class="fa fa-calendar"> 历史</i></a><a href="/books"><i class="fa fa-book"> 书籍</i></a><a href="/movies"><i class="fa fa-film"> 电影</i></a><a href="/games"><i class="fa fa-gamepad"> 游戏</i></a><a href="https://itgoyo.github.io/gallery.html"><i class="fa fa-photo"> 相册</i></a><a href="https://itgoyo.github.io/resume"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> RSS</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">在Github上使用Hexo搭建个人博客</h1><div class="post-meta">Dec 28, 2018<span> | </span><span class="category"><a href="/categories/编程相关/">编程相关</a></span><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> 阅读</span></span><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5803807445434654"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div><a class="disqus-comment-count" data-disqus-identifier="2018/12/28/在Github上使用Hexo搭建个人博客/" href="/2018/12/28/在Github上使用Hexo搭建个人博客/#disqus_thread"></a><a class="disqus-comment-count" href="/2018/12/28/在Github上使用Hexo搭建个人博客/#vcomment"><span class="valine-comment-count" data-xid="/2018/12/28/在Github上使用Hexo搭建个人博客/"></span><span>条评论</span></a><div class="post-content"><p>成品示例展示：<a href="https://itgoyo.github.io/">https://itgoyo.github.io/</a></p>
+<p><img src="http://omvbl46i3.bkt.clouddn.com/17-5-28/97759013.jpg" alt=""></p>
+<h2 id="1、Hexo搭建"><a href="#1、Hexo搭建" class="headerlink" title="1、Hexo搭建"></a>1、Hexo搭建</h2><h4 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h4><p>一、环境安装</p>
+<ol>
+<li><p>node.js（在node.js官网中下载安装）node.js官网</p>
+</li>
+<li><p>git（OS系统中直接安装x-code就可以了）</p>
+</li>
+<li><p>hexo</p>
+</li>
+</ol>
+<p>1）打开OS系统终端</p>
+<p>2）输入安装hexo的代码(此处安装时有可能会提示输入系统管理员密码)</p>
+<p>$ sudo npm install -g hexo</p>
+<p>如果以上命令安装失败的话，换</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install --unsafe-perm --verbose -g hexo</span><br></pre></td></tr></table></figure>
+<p>二、hexo创建静态博客</p>
+<ol>
+<li><p>新建blog文件夹</p>
+</li>
+<li><p>在终端进入该文件夹，初始化博客</p>
+</li>
+</ol>
+<p>$ hexo init</p>
+<ol start="3">
+<li>上述完成后，生成原始文件；blog文件夹就是博客的根目录</li>
+</ol>
+<ol start="4">
+<li>本地查看：启用本地服务命令(退出按ctrl+c)</li>
+</ol>
+<p>$ hexo s</p>
+<ol start="5">
+<li>将出现的地址输入浏览器，即可可查看到本地效果</li>
+</ol>
+<p>三、github配置</p>
+<ol>
+<li><p>注册github账号并登陆</p>
+</li>
+<li><p>获取本机的SSH口令</p>
+</li>
+</ol>
+<p>1）输入获取代码，回车直到出现图片所示图形为止</p>
+<p>$ ssh-keygen</p>
+<p>2）输入编译代码</p>
+<p>$ vim ~/.ssh/id_rsa.pub<br>3）出现SSH口令后，将红框部分复制，并在下方输入:q，随后按下回车可以退出该窗口</p>
+<p>4）进入到github页面设置SSH口令</p>
+<p>点击用户下拉菜单中的settings（step1)</p>
+<p>点击左侧的SHH and GPG keys（step2)</p>
+<p>在Title中输入口令名称（随意）（step3)</p>
+<p>在key中贴上SSH口令（step4)</p>
+<a id="more"></a>
+<ol start="3">
+<li>创建新的仓库</li>
+</ol>
+<p>1）创建新的仓库（repOSitory）</p>
+<p>点击用户左侧的+号菜单中的New repOSitory（step1)</p>
+<p>在repOSitory name中输入二级域名，格式请严格遵照username.github.io（step2)</p>
+<p>ps：username填写github的登录用户名，否则上线的时候会报错</p>
+<p>是否公开选项可以选取Public（step3)</p>
+<p>勾选step4处，会自动生成一份可编辑的README.md文件（建议勾选）（step4)</p>
+<p>点击create repOSitory生成仓库完毕（step5)</p>
+<p>2）查看新建的仓库（repOSitory）</p>
+<p>可以回到github个人首页点击右侧的仓库区</p>
+<p>进入后在step1处选择并复制http地址，注意此时step2处应该是空的</p>
+<p>四、发布博客</p>
+<ol>
+<li>设置blog配置文件</li>
+</ol>
+<p>1）打开blog文件夹下的_config.yml文件</p>
+<p>2）找到最下方的type，输入git（注意冒号后面是带空格的）</p>
+<p>3）repo行可能没有，需要自己输入，后面跟上github上仓库中复制的http地址（注意此时1、2两处应该是一样的username），不然上传时会报错</p>
+<p>4）其他博客设置</p>
+<p>title：博客名称</p>
+<p>subtitle：博客副标题</p>
+<p>description：博客描述</p>
+<p>author：作者</p>
+<p>language：语言（简体中文是zh-CN）</p>
+<ol start="2">
+<li>在终端上传博客</li>
+</ol>
+<p>1）进入终端，输入git上传插件安装代码（安装时会提示输入github用户名及密码）</p>
+<p>  $ npm install hexo-deployer-git –save<br>2）安装完毕后，输入获取代码</p>
+<p>  $ hexo g<br>3）最后输入上传代码</p>
+<p>  $ hexo d<br>4）重新在github仓库查看上传文件，此时在step2中会有之前bolg中生成的文件</p>
+<p>5）step3处就是你的博客地址</p>
+<p>五、新建与更新博客</p>
+<ol>
+<li>新建博客</li>
+</ol>
+<p>1）终端bolg文件下，输入新建博客代码</p>
+<pre><code>$ hexo new &apos;filename&apos;
+</code></pre><p>2）此时在bolg/source/_posts/下面会看到新建的博客</p>
+<p>3）博客文件的后缀是.md文件，OS下推荐使用MOU编辑器mou下载地址</p>
+<ol start="2">
+<li>更新博客</li>
+</ol>
+<p>1）完成编辑后，在终端上依次重复以下代码（此时必须先将编辑器关闭，否则会出现获取错误）</p>
+<pre><code>$ hexo g
+$ hexo d
+</code></pre><p>2）完成后便能刷新博客网页看到新更新的内容了</p>
+<h2 id="2、Hexo加入评论功能"><a href="#2、Hexo加入评论功能" class="headerlink" title="2、Hexo加入评论功能"></a>2、Hexo加入评论功能</h2><h3 id="Yilia主题（别的主题也是一样的操作）"><a href="#Yilia主题（别的主题也是一样的操作）" class="headerlink" title="Yilia主题（别的主题也是一样的操作）"></a>Yilia主题（别的主题也是一样的操作）</h3><p>首先，我们要有一个多说的账号<a href="https://github.com/itgoyo/itgoyo.github.io" target="_blank" rel="noopener">多说</a>(2017-6-1废弃)</p>
+<p>然后进入到后台把我们的网站填写进去</p>
+<p><img src="http://omvbl46i3.bkt.clouddn.com/17-5-28/63843029.jpg" alt=""></p>
+<p>在<code>theme/yilia/layout/_partial/post/</code>目录下创建文件名叫：duoshuo.ejs<br>把以下代码复制进去</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"duoshuo"</span>&gt;</span><br><span class="line">    &lt;!-- 多说评论框 start --&gt;</span><br><span class="line">    &lt;div class="ds-thread" data-thread-key="&lt;%=key%&gt;" data-title="&lt;%=title%&gt;" data-url="&lt;%=url%&gt;"&gt;&lt;/div&gt;</span><br><span class="line">    &lt;!-- 多说评论框 end --&gt;</span><br><span class="line">    &lt;!-- 多说公共JS代码 start (一个网页只需插入一次) --&gt;</span><br><span class="line">    &lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">    var duoshuoQuery = &#123;short_name:<span class="string">'&lt;%= config.duoshuo_shortname %&gt;'</span>&#125;;</span><br><span class="line">    (function() &#123;</span><br><span class="line">        var ds = document.createElement(<span class="string">'script'</span>);</span><br><span class="line">        ds.type = <span class="string">'text/javascript'</span>;ds.async = <span class="keyword">true</span>;</span><br><span class="line">        ds.src = (document.location.protocol == <span class="string">'https:'</span> ? <span class="string">'https:'</span> : <span class="string">'http:'</span>) + <span class="string">'//static.duoshuo.com/embed.js'</span>;</span><br><span class="line">        ds.charset = <span class="string">'UTF-8'</span>;</span><br><span class="line">        (document.getElementsByTagName(<span class="string">'head'</span>)[<span class="number">0</span>]</span><br><span class="line">         || document.getElementsByTagName(<span class="string">'body'</span>)[<span class="number">0</span>]).appendChild(ds);</span><br><span class="line">    &#125;)();</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">    &lt;!-- 多说公共JS代码 end --&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>在<code>hexo/_comfig.yml</code>里边添加一下代码（名字换成自己的）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">duoshuo_shortname: xxxx(冒号后有空格)</span><br></pre></td></tr></table></figure>
+<p>最后在<code>theme/yilia/_config.yml</code>  里边添加以下代码（名字换成自己的）</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">duoshuo: <span class="keyword">true</span></span><br><span class="line">short_name: xxxx  #名字换你自己在多说后台的名字(冒号后有空格)</span><br></pre></td></tr></table></figure>
+<p><strong>一共配置两处地方</strong><br>不然即便是看到评论功能，但是不会保留别人对你的评论</p>
+<p>然后重新提交代码刷新即可看到评论功能</p>
+<p><img src="http://omvbl46i3.bkt.clouddn.com/c1a4fdd0b700d1466950b335401c884f.png" alt=""><br><a href="https://github.com/itgoyo/itgoyo.github.io" target="_blank" rel="noopener">1</a>:    <a href="http://duoshuo.com/" target="_blank" rel="noopener">http://duoshuo.com/</a></p>
+<hr>
+<h3 id="Yilia添加Disqus评论"><a href="#Yilia添加Disqus评论" class="headerlink" title="Yilia添加Disqus评论"></a>Yilia添加Disqus评论</h3><p>只需要在Yilia主题里边的_config.yml添加一句</p>
+<p>disqus_shortname: 你的Disqus账户名称</p>
+<h2 id="2、Hexo加入网易云音乐"><a href="#2、Hexo加入网易云音乐" class="headerlink" title="2、Hexo加入网易云音乐"></a>2、Hexo加入网易云音乐</h2><h3 id="Yilia主题（我使用的是这个主题就用这个来讲）"><a href="#Yilia主题（我使用的是这个主题就用这个来讲）" class="headerlink" title="Yilia主题（我使用的是这个主题就用这个来讲）"></a>Yilia主题（我使用的是这个主题就用这个来讲）</h3><p>进入网易云音乐: <a href="https://github.com/itgoyo/itgoyo.github.io" target="_blank" rel="noopener">官网</a></p>
+<p>推荐：自己注册账号，这样子可以创建自己喜欢的歌单，在里边收藏自己喜欢的歌曲</p>
+<p><img src="https://itgoyo.github.io/pictures/2017_1_10/yunmusic.png" alt=""></p>
+<p>然后进入到自己的歌单</p>
+<p><img src="https://itgoyo.github.io/pictures/2017_1_10/yunmusiclist.png" alt=""></p>
+<p>点击生成外链，获取到云音乐播放器代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=300 height=270 src=&quot;https://music.163.com/outchain/player?type=0&amp;id=120897804&amp;auto=1&amp;height=430&quot;&gt;&lt;/iframe&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="https://itgoyo.github.io/pictures/2017_1_10/yunmusicurl.png" alt=""></p>
+<p>选择生成自己喜欢的样式，然后复制代码</p>
+<p><img src="https://itgoyo.github.io/pictures/2017_1_10/yunmusicplayer.png" alt=""></p>
+<p>最后打开（themes/yilia/layout/_partial/left-col.ejs）<br>把复制好的网易云音乐放到第二行里边(当然这个是我的样式，我选择放在左边，你喜欢放在那里自己选择)</p>
+<p><img src="https://itgoyo.github.io/pictures/2017_1_10/playerlocation.png" alt=""></p>
+<p>最后的效果图如下</p>
+<p><img src="https://itgoyo.github.io/pictures/2017_1_10/style.png" alt=""></p>
+<hr>
+<h2 id="3、Hexo加入百度统计"><a href="#3、Hexo加入百度统计" class="headerlink" title="3、Hexo加入百度统计"></a>3、Hexo加入百度统计</h2><h2 id="yilia主题为🌰"><a href="#yilia主题为🌰" class="headerlink" title="yilia主题为🌰"></a>yilia主题为🌰</h2><p> 编辑文件 themes/yilia/_config.yml ,添加一行配置，可以删除原来的google analytics</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">baidu_tongji: <span class="keyword">true</span></span><br></pre></td></tr></table></figure>
+ <!--more-->
+<p> 新建 themes/yilia/layout/_partial/baidu_tongji.ejs 内容如下</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;% <span class="keyword">if</span> (theme.baidu_tongji) &#123; %&gt;</span><br><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">#申请的百度统计代码</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+<p> 编辑themes/yilia/layout/_partial/head.ejs 在  前添加</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%- partial(<span class="string">"baidu_tongji"</span>) %&gt;</span><br></pre></td></tr></table></figure>
+<p> 重新生产部署站点即可。<br> Light主题<br> 编辑文件 themes/yilia/_config.yml ,添加一行配置，可以删除原来的google analytics</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">baidu_tongji: <span class="keyword">true</span>`</span><br></pre></td></tr></table></figure>
+<p> 新建 themes/light/layout/_partial/baidu_tongji.ejs 内容如下</p>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">%</span> <span class="attr">if</span> (<span class="attr">theme.baidu_tongji</span>) &#123; %&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">#申请的百度统计代码</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">%</span> &#125; %&gt;</span></span><br></pre></td></tr></table></figure>
+<p> 编辑themes/Yilia/layout/_partial/head.ejs 在  前添加</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%- partial(<span class="string">"baidu_tongji"</span>) %&gt;`</span><br></pre></td></tr></table></figure>
+<h2 id="重新生产部署站点即可。"><a href="#重新生产部署站点即可。" class="headerlink" title=" 重新生产部署站点即可。"></a> 重新生产部署站点即可。</h2><p>最后多说一句，因为文章是采用Markdown格式编辑的，所以不免会使用到图片的时候，这个时候如果是在跟目录下创建图片文件，这样子搬迁或者复制什么的会很不便，在此我想向大家推荐一个免费的图床<br><a href="https://jiantuku.com" target="_blank" rel="noopener">极简图床</a><br>只要复制图片粘贴到极简图床，它会自动生成Markdown格式的图片地址</p>
+<p><img src="http://omvbl46i3.bkt.clouddn.com/17-5-29/76939269.jpg" alt=""></p>
+<p>最好申请一个七牛云，这样子就可以创建自己的私密空间。</p>
+<h3 id="Ubuntu下"><a href="#Ubuntu下" class="headerlink" title="Ubuntu下"></a>Ubuntu下</h3><p>首先安装nodejs<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get nodejs</span><br><span class="line"></span><br><span class="line">sudo npm cache clean -f</span><br><span class="line">sudo npm install -g n</span><br><span class="line">sudo n stable</span><br><span class="line"></span><br><span class="line">出现了相应的版本号了之后</span><br><span class="line">sudo n xxx</span><br></pre></td></tr></table></figure></p>
+<p>提交到Girhub还要安装一个git插件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br><span class="line"></span><br><span class="line">之前一直报错，然后手贱敲错</span><br><span class="line">npm install hexo-deployer-git --save、</span><br><span class="line">多了一个、居然成功了？！</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>邮箱 ：<a href="mailto:itgoyo@gmail.com" target="_blank" rel="noopener">itgoyo@gmail.com</a></li>
+<li>Good Luck!</li>
+</ul>
+<hr>
+<div align="center"><br><br>        发现更多更好玩的，欢迎关注我的微信公众号:<span style="color:red;"> FullStacker </span><br><br>        <img src="/img/fullstacker.jpg" height="400px" width="400px"><br>    </div>
+</div><iframe src="/donate/?AliPayQR=/img/alipay.jpg&amp;WeChatQR=/img/wechat.jpg&amp;GitHub=null&amp;BTCQR=null&amp;BTCKEY=null&amp;PayPal=null" style="overflow-x:hidden; overflow-y:hidden; border:0xp none #fff; min-height:300px; width:100%;" frameborder="0" scrolling="no"></iframe><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a class="article-share-link" data-url="https://itgoyo.github.io/2018/12/28/在Github上使用Hexo搭建个人博客/" data-id="ck5kuvlne004oapxw3zu6rltr" data-qrcode="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACrklEQVR42u3aQWoDMRAEwPz/0841EFt0ayQ7gdpTMGutagOS3DNfX/H1+HH9/GR9f3Ln+inrz49deHh4eIOp/75e3TMZM3ni+rn5CHh4eHj3eMnivp7EeoQE/+pb+baEh4eH9/d5+SOTRT/fkPDw8PD+Fy+PHtYjtOECHh4e3l/jtcfc9aTz15G/iOtZCx4eHl7MmyzKn/r7Sn0PDw8Pb1xVn4cFk/aCx/jCw8PDu8HLY4L2cJzD5sEHHh4e3jt5LayddNIocKrQdeD/hoeHh3eINwltJ1tOe7AupouHh4c34LWAZCnPD7577Vz5aHh4eHg3eO0Sn/PmFbm9DaPILfDw8PC2eG0cMFm428W9LZLVbQR4eHh4W7y90n4eOrTxweRbT+aGh4eHd403WbL3NoAbG0bROoCHh4c3TT7rolQeRkyaqA4EEHh4eHiXefPlOL9/8qLz6BkPDw/vNi9vFGgffHsDiEpfeHh4eId4eUCwV1dKIuC88Ws9wpN78PDw8C7zEkBemqoPvoeKcHh4eHjv5+XH6zySmJfWNn8M4OHh4b2F1/7grxuhBvFHHVjg4eHhXeOtN4m91qg8Psgj4/bCw8PDu8Frt4c8ct0LEZI4uD6I4+Hh4R3l7cW1x3oWYkzbjDVKo/Hw8PDi3qR8EW+L+nkykEfDeXyMh4eHd5a3F7DmgcIktM2Dkpfj4OHh4V3gTY6/beCbh7xtOFLvfnh4eHgD3l7oMI99J8fuYkvAw8PDu8CbFLom5au917dXSMPDw8O7wcsfufeekqU8J9WFNzw8PLxrvFMlq8lSPjm41wEuHh4e3lt4k8B3vcS3G0MReeDh4eF9lJcftXPMpOUret14eHh413h5tJpMvcXnLyhvYsDDw8O7x2tL/ushRiX8rajiwBPx8PDwUt43xylK3wl+e9sAAAAASUVORK5CYII=">分享</a><div class="tags"><a href="/tags/Program/">Program</a></div><div class="post-nav"><a class="pre" href="/2019/01/04/《实用性阅读指南》读书笔记/">《实用性阅读指南》读书笔记</a><a class="next" href="/2018/12/14/终端目录跳转软件autojump和z/">终端目录跳转软件autojump和z</a></div><div id="disqus_thread"><div class="btn_click_load"><button class="disqus_click_btn">阅读评论 「请确保 disqus.com 可以正常加载」</button></div><script>var disqus_shortname = 'itgoyo';
+var disqus_identifier = '2018/12/28/在Github上使用Hexo搭建个人博客/';
+var disqus_title = '在Github上使用Hexo搭建个人博客';
+var disqus_url = 'https://itgoyo.github.io/2018/12/28/在Github上使用Hexo搭建个人博客/';
+$('.btn_click_load').click(function() {
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  $('.btn_click_load').css('display','none');
+});
+$.ajax({
+  url: 'https://disqus.com/next/config.json',
+  timeout: 3000,
+  type: 'GET',
+  success: (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    $('.btn_click_load').css('display','none');
+  })(),
+  error: function() {
+    $('.btn_click_load').css('display','block');
+  }
+});</script><script id="dsq-count-scr" src="//itgoyo.disqus.com/count.js" async></script></div><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'true' == true ? true : false;
+var verify = 'false' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'HzQ14MvDJNcJ4Y73LGzWkuKD-gzGzoHsz',
+  appKey:'gPggWGa1wwwhXbzuhnSQyQDx',
+  placeholder:'Just so so',
+  avatar:'mm',
+  guest_info:guest_info,
+  pageSize:'10'
+})</script></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Go/">Go</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mac/">Mac</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vim/">Vim</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/开发工具/">开发工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/开源项目/">开源项目</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活随笔/">生活随笔</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程相关/">编程相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/生活随笔/" style="font-size: 15px;">生活随笔</a> <a href="/tags/Program/" style="font-size: 15px;">Program</a> <a href="/tags/Github/" style="font-size: 15px;">Github</a> <a href="/tags/Go/" style="font-size: 15px;">Go</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/Android/" style="font-size: 15px;">Android</a> <a href="/tags/Mac/" style="font-size: 15px;">Mac</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/Shadowsocks/" style="font-size: 15px;">Shadowsocks</a> <a href="/tags/科学上网/" style="font-size: 15px;">科学上网</a> <a href="/tags/Vim/" style="font-size: 15px;">Vim</a> <a href="/tags/插件/" style="font-size: 15px;">插件</a> <a href="/tags/读书笔记/" style="font-size: 15px;">读书笔记</a> <a href="/tags/读书/" style="font-size: 15px;">读书</a> <a href="/tags/记忆力/" style="font-size: 15px;">记忆力</a> <a href="/tags/Markdown/" style="font-size: 15px;">Markdown</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/shell/" style="font-size: 15px;">shell</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/i3/" style="font-size: 15px;">i3</a> <a href="/tags/Rofi/" style="font-size: 15px;">Rofi</a> <a href="/tags/ncmpcpp/" style="font-size: 15px;">ncmpcpp</a> <a href="/tags/Music/" style="font-size: 15px;">Music</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/11/29/2019一整年的总结与一些个人反思/">2019一整年的总结与一些个人反思</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/19/Docker容器造化钟神秀/">Docker容器造化钟神秀</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/17/Tmux的使用教程/">Tmux的使用教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/16/cnBlogs博客园主题样式美化/">cnBlogs博客园主题样式美化</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/13/PicGo-Github-CDN加速图床-免费的难道它不香吗？/">PicGo+Github+CDN加速图床,免费的难道它不香吗？</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/02/如何免费做一个属于自己稳定有效的图床/">如何免费做一个属于自己稳定有效的图床</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/02/关于自己每日计划是如何制定的/">关于自己每日计划是如何制定的</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/31/java多线程的4种实现方式/">java多线程的4种实现方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/31/2020跨年文案/">2020跨年文案</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/03/Go语言数据类型/">Go语言数据类型</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-comment-o"> 最近评论</i></div><script type="text/javascript" src="//itgoyo.disqus.com/recent_comments_widget.js?num_items=5&amp;hide_avatars=1&amp;avatar_size=32&amp;excerpt_length=20&amp;hide_mods=1"></script></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://github.com/itgoyo" title="Github" target="_blank">Github</a><ul></ul><a href="https://space.bilibili.com/12767066/#/" title="BiliBili" target="_blank">BiliBili</a><ul></ul><a href="https://www.zhihu.com/people/mkosto/activities" title="ZhiHu" target="_blank">ZhiHu</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><p align="center">
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+</p><div id="footer">Copyright © 2020 <a href="/." rel="nofollow">itgoyo'blog.</a> 作者Github:<a rel="nofollow" target="_blank" href="https://github.com/itgoyo"> itgoyo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/itgoyo"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.2.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.2.5/jquery.fancybox.min.css"><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+   search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = '//hm.baidu.com/hm.js?' + 'c16d3c10c9ea6c6fe749d9926d52b0d6';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+  })();
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html><div>
+<a href="https://github.com/itgoyo"><img class="nofancybox" ;="" style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+</div>
